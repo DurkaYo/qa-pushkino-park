@@ -1,3 +1,29 @@
 :root {
+  // BREAK POINTS
+  --screen-large: 1440px;
+  --screen-middle: 720px;
+  --screen-small: 360px;
 
+  // FONT FAMILY
+  --family-raleway: Raleway, Arial, sans-serif;
+  --family-russo: RussoOne, Arial, sans-serif;
+
+  // COLORS
+  --bg-block-orange: linear-gradient(180deg, rgba(0, 0, 0, 0.10) 0%, rgba(0, 0, 0, 0.00) 100%), linear-gradient(65deg, #D15C34 6.02%, #CD4C23 99.42%);
+  --bg-block-cyan: linear-gradient(0deg, rgba(0, 0, 0, 0.12) 0%, rgba(0, 0, 0, 0.12) 100%), linear-gradient(65deg, #40A0AD 6.02%, #026674 99.42%);
+  --bg-block-green: linear-gradient(180deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.00) 100%), linear-gradient(65deg, #388678 6.02%, #257873 99.42%);
+  --bg-block-rim: linear-gradient(180deg, rgba(0, 0, 0, 0.10) 0%, rgba(0, 0, 0, 0.00) 100%), linear-gradient(65deg, #751415 6.02%, #560203 99.42%);
+
+  --color-primary-red-orange: #ed5d2b;
+  --color-primary-dark-blue: #3383a4;
+  --color-primary-poisonous-green: #388678;
+  --color-primary-red-purple: #9e2e46;
+
+  --color-shiny-orange: #f5ba46;
+  --color-yellow-green: #40831c;
+  --color-green-sea: #80b895;
+
+  --color-white: #fff;
+  --color-black: #000;
+  --color-transparent-black: rgba(1, 1, 1, .2);
 }
