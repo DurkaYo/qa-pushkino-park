@@ -1,0 +1,15 @@
+html {
+    font-size: 10px;
+
+    @media screen and (max-width: 1440px) {
+        @include adaptive-font-size(1440);
+    }
+
+    @media screen and (max-width: 720px) {
+        @include adaptive-font-size(720);
+    }
+
+    @media screen and (max-width: 360px) {
+        @include adaptive-font-size(360);
+    }
+}
