@@ -1,4 +1,21 @@
+import {Raleway, Russo_One} from "next/font/google";
+import {NextFontWithVariable} from "next/dist/compiled/@next/font";
+
 import './_styles/global.scss';
+
+const raleway: NextFontWithVariable = Raleway({
+  subsets: ['cyrillic'],
+  display: "swap",
+  weight: ['400', '600'],
+  variable: '--family-raleway',
+});
+
+const russoOne: NextFontWithVariable = Russo_One({
+  subsets: ['cyrillic'],
+  display: "swap",
+  weight: ['400'],
+  variable: '--family-russo-one',
+});
 
 export default function RootLayout({
   children,
@@ -6,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru">
+    <html lang="ru" className={`${raleway.variable} ${russoOne.variable}`}>
       <body>{children}</body>
     </html>
   );
