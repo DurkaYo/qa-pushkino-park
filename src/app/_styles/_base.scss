@@ -1,15 +1,33 @@
 html {
-    font-size: 10px;
+    font-size: var(--font-size-base);
 
-    @media screen and (max-width: 1440px) {
-        @include adaptive-font-size(1440);
+    @media screen and (max-width: $screen-large-px) {
+        @include adaptive-font-size(var(--screen-large-num));
     }
 
-    @media screen and (max-width: 720px) {
-        @include adaptive-font-size(720);
+    @media screen and (max-width: $screen-middle-px) {
+        @include adaptive-font-size(var(--screen-middle-num));
     }
 
-    @media screen and (max-width: 360px) {
-        @include adaptive-font-size(360);
+    @media screen and (max-width: $screen-small-px) {
+        @include adaptive-font-size(var(--screen-small-num));
     }
+}
+
+body {
+    font-family:
+            var(--family-raleway),
+            Inter,
+            -apple-system,
+            BlinkMacSystemFont,
+            'Segoe UI',
+            Roboto,
+            Oxygen,
+            Ubuntu,
+            Cantarell,
+            'Fira Sans',
+            'Droid Sans',
+            'Helvetica Neue',
+            sans-serif;
+    font-style: normal;
 }
