@@ -16,26 +16,32 @@ export default function HomePage(): JSX.Element {
         <UISection defaultClass={styles['section-block']}>
             <h1 className="h1 h1_caps">Home page НАХ</h1>
             <br/>
-            <ButtonFull isDisabled={ false }>ButtonFull</ButtonFull>
+            <ButtonFull isDisabled={false}>ButtonFull</ButtonFull>
             <br/><br/>
-            <ButtonFull isDisabled={ true }>ButtonFull</ButtonFull>
+            <ButtonFull isDisabled={true}>ButtonFull</ButtonFull>
             <br/><br/>
-            <ButtonTransparent isDisabled={ false }>ButtonTransparent</ButtonTransparent>
+            <ButtonTransparent isDisabled={false}>ButtonTransparent</ButtonTransparent>
             <br/><br/>
-            <ButtonTransparent isDisabled={ true }>ButtonTransparent</ButtonTransparent>
+            <ButtonTransparent isDisabled={true}>ButtonTransparent</ButtonTransparent>
             <br/><br/>
-            <ButtonCircleFull isDisabled={ false } />
+            <ButtonCircleFull isDisabled={false} isRevers={true} />
+            <ButtonCircleFull isDisabled={false} isRevers={false} />
             <br/><br/>
-            <ButtonCircleFull isDisabled={ true } />
+            <ButtonCircleFull isDisabled={true} isRevers={true} />
+            <ButtonCircleFull isDisabled={true} isRevers={false} />
             <br/><br/>
-            <ButtonCircleTransparentBlack isDisabled={ false } />
+            <ButtonCircleTransparentBlack isDisabled={false} isRevers={true} />
+            <ButtonCircleTransparentBlack isDisabled={false} isRevers={false} />
             <br/><br/>
-            <ButtonCircleTransparentBlack isDisabled={ true } />
+            <ButtonCircleTransparentBlack isDisabled={true} isRevers={true} />
+            <ButtonCircleTransparentBlack isDisabled={true} isRevers={false} />
             <br/><br/>
-            <ButtonCircleTransparentWhite isDisabled={ false } />
+            <ButtonCircleTransparentWhite isDisabled={false} isRevers={true} />
+            <ButtonCircleTransparentWhite isDisabled={false} isRevers={false} />
             <br />
             <br />
-            <ButtonCircleTransparentWhite isDisabled={ true } />
+            <ButtonCircleTransparentWhite isDisabled={true} isRevers={true} />
+            <ButtonCircleTransparentWhite isDisabled={true} isRevers={false} />
         </UISection>
     );
 }
