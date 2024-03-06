@@ -1,5 +1,5 @@
-import { Raleway, Russo_One } from "next/font/google";
-import { NextFontWithVariable } from "next/dist/compiled/@next/font";
+import {Raleway, Russo_One} from "next/font/google";
+import {NextFontWithVariable} from "next/dist/compiled/@next/font";
 
 import './_styles/global.scss';
 
@@ -29,7 +29,7 @@ export default function RootLayout({
     <html lang="ru" className={`${raleway.variable} ${russoOne.variable}`}>
       <body>
         <Header />
-        { children }
+        {children}
         <Footer />
       </body>
     </html>

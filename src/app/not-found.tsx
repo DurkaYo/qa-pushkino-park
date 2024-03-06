@@ -1,7 +1,7 @@
-import type { JSX } from 'react';
+import type {JSX} from 'react';
 import Link from "next/link";
 
-import { UISection } from "/shared/ui/section";
+import {UISection} from "/shared/ui/section";
 
 export default function NotFound(): JSX.Element {
     return (

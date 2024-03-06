@@ -1,5 +1,5 @@
-import type { JSX } from "react";
-import type { Metadata } from "next";
+import type {JSX} from "react";
+import type {Metadata} from "next";
 
 import HomePage from "/app/(pages)/home/page";
 

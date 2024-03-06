@@ -1,1 +1,1 @@
-export { Section as UISection } from './section';
+export {Section as UISection} from './section';

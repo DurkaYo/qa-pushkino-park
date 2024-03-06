@@ -1,45 +1,45 @@
-import { JSX } from "react";
+import {JSX} from "react";
 
 import styles from './styles.module.scss';
 
-import type { SectionProps } from "/shared/ui/buttons/config";
+import type {SectionProps} from "/shared/ui/buttons/config";
 
-export function ButtonFull({ children, isDisabled }: SectionProps): JSX.Element {
+export function ButtonFull({children, isDisabled}: SectionProps): JSX.Element {
     return (
         <button
             className={`
-                ${ styles.button }
-                ${ styles.button_full }
+                ${styles.button}
+                ${styles.button_full}
                 body-18-24
             `}
             disabled={isDisabled}
         >
-            { children }
+            {children}
         </button>
     )
 }
 
-export function ButtonTransparent({ children, isDisabled }: SectionProps): JSX.Element {
+export function ButtonTransparent({children, isDisabled}: SectionProps): JSX.Element {
     return (
         <button
             className={`
-                  ${ styles.button }
-                  ${ styles.button_transparent }
+                  ${styles.button}
+                  ${styles.button_transparent}
                   body-18-24
               `}
             disabled={isDisabled}
         >
-            { children }
+            {children}
         </button>
     )
 }
 
-export function ButtonCircleFull({ isDisabled }: SectionProps): JSX.Element {
+export function ButtonCircleFull({isDisabled}: SectionProps): JSX.Element {
     return (
         <button
             className={`
-                ${ styles.button }
-                ${ styles.button__circle }
+                ${styles.button}
+                ${styles.button__circle}
             `}
             disabled={isDisabled}
         >
@@ -52,13 +52,13 @@ export function ButtonCircleFull({ isDisabled }: SectionProps): JSX.Element {
     )
 }
 
-export function ButtonCircleTransparentBlack({ isDisabled }: SectionProps): JSX.Element {
+export function ButtonCircleTransparentBlack({isDisabled}: SectionProps): JSX.Element {
     return (
         <button
             className={`
-                ${ styles.button }
-                ${ styles.button__circle }
-                ${ styles.button__circle_black }
+                ${styles.button}
+                ${styles.button__circle}
+                ${styles.button__circle_black}
             `}
             disabled={isDisabled}
         >
@@ -71,13 +71,13 @@ export function ButtonCircleTransparentBlack({ isDisabled }: SectionProps): JSX.
     )
 }
 
-export function ButtonCircleTransparentWhite({ isDisabled }: SectionProps): JSX.Element {
+export function ButtonCircleTransparentWhite({isDisabled}: SectionProps): JSX.Element {
     return (
         <button
             className={`
-                ${ styles.button }
-                ${ styles.button__circle }
-                ${ styles.button__circle_white }
+                ${styles.button}
+                ${styles.button__circle}
+                ${styles.button__circle_white}
             `}
             disabled={isDisabled}
         >
