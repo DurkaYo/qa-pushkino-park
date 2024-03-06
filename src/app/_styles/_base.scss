@@ -31,3 +31,13 @@ body {
             sans-serif;
     font-style: normal;
 }
+
+[class*='__container'] {
+    max-width: 1240px;
+    padding: 0 3rem;
+    margin: 0 auto;
+
+    @include screen-breakpoint($screen-small-px) {
+        padding: 0 2rem;
+    }
+}

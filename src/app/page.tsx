@@ -1,6 +1,7 @@
-import type {Metadata} from "next";
+import type { JSX } from "react";
+import type { Metadata } from "next";
 
-import Home from "/app/(pages)/home/page";
+import HomePage from "/app/(pages)/home/page";
 
 export const metadata: Metadata = {
   title: "Home Page Title",
@@ -8,8 +9,8 @@ export const metadata: Metadata = {
   keywords: "Home Page Keywords"
 };
 
-export default function IndexPage() {
+export default function IndexPage(): JSX.Element {
   return (
-    <Home />
+    <HomePage />
   );
 }

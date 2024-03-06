@@ -1,13 +1,13 @@
 import type { JSX } from "react";
 
-import styles from './page-styles.module.scss';
+import styles from './styles.module.scss';
 
-import { UIContainer } from '/shared/ui/conteiner/index';
+import { UISection } from "/shared/ui/section";
 
-export default function Home(): JSX.Element {
+export default function HomePage(): JSX.Element {
     return (
-        <UIContainer>
-            <h1 className={ styles.h1 }>Home page НАХ</h1>
-        </UIContainer>
+        <UISection defaultClass='section-block'>
+            <h1 className={ `h1 h1_caps` }>Home page НАХ</h1>
+        </UISection>
     );
 }
