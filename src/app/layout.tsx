@@ -3,8 +3,8 @@ import {NextFontWithVariable} from "next/dist/compiled/@next/font";
 
 import './_styles/global.scss';
 
-import Header from "/widgets/header/header";
-import Footer from "/widgets/footer/footer";
+import {Header} from "/widgets/header/";
+import {Footer} from "/widgets/footer/";
 
 const raleway: NextFontWithVariable = Raleway({
   subsets: ['cyrillic'],
