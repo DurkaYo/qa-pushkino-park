@@ -2,39 +2,56 @@ import {JSX} from "react";
 
 import styles from './styles.module.scss';
 
-import type {SectionProps} from "/shared/ui/buttons/config";
+import type {ButtonProps, ButtonCircleProps} from "/shared/ui/buttons/config";
 
-export function ButtonFull({children, isDisabled}: SectionProps): JSX.Element {
+export function ButtonFull({children, width = 'fit-content', isDisabled = false}: ButtonProps): JSX.Element {
     return (
-        <button
-            className={`
+        <>
+            <style>{`
+                .button_custom-width {
+                    width: ${width};
+                }
+            `}</style>
+
+            <button
+                className={`
                 ${styles.button}
-                ${styles.button_full}
+                button_custom-width
                 body-18-24
             `}
-            disabled={isDisabled}
-        >
-            {children}
-        </button>
+                disabled={isDisabled}
+            >
+                {children}
+            </button>
+        </>
     )
 }
 
-export function ButtonTransparent({children, isDisabled}: SectionProps): JSX.Element {
+export function ButtonTransparent({children, width = 'fit-content', isDisabled = false}: ButtonProps): JSX.Element {
     return (
-        <button
-            className={`
+        <>
+            <style>{`
+                .button_custom-width {
+                    width: ${width};
+                }
+            `}</style>
+
+            <button
+                className={`
                   ${styles.button}
                   ${styles.button_transparent}
+                  button_custom-width
                   body-18-24
               `}
-            disabled={isDisabled}
-        >
-            {children}
-        </button>
+                disabled={isDisabled}
+            >
+                {children}
+            </button>
+        </>
     )
 }
 
-export function ButtonCircleFull({isDisabled, isRevers}: SectionProps): JSX.Element {
+export function ButtonCircleFull({isDisabled = false, isRevers = false}: ButtonCircleProps): JSX.Element {
     return (
         <button
             className={`
@@ -53,7 +70,7 @@ export function ButtonCircleFull({isDisabled, isRevers}: SectionProps): JSX.Elem
     )
 }
 
-export function ButtonCircleTransparentBlack({isDisabled, isRevers}: SectionProps): JSX.Element {
+export function ButtonCircleTransparentBlack({isDisabled = false, isRevers = false}: ButtonCircleProps): JSX.Element {
     return (
         <button
             className={`
@@ -73,7 +90,7 @@ export function ButtonCircleTransparentBlack({isDisabled, isRevers}: SectionProp
     )
 }
 
-export function ButtonCircleTransparentWhite({isDisabled, isRevers}: SectionProps): JSX.Element {
+export function ButtonCircleTransparentWhite({isDisabled = false, isRevers = false}: ButtonCircleProps): JSX.Element {
     return (
         <button
             className={`

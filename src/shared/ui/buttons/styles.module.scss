@@ -9,7 +9,6 @@
     --padding: 1.2rem 2.4rem;
 
     padding: var(--padding);
-    width: var(--width);
     color: var(--color);
     border-radius: 20rem;
     cursor: var(--cursor);
@@ -32,7 +31,10 @@
     }
 
     &__circle {
-        --padding: 1.05rem 1.2rem;
+        --padding: 0;
+
+        width: 4.8rem;
+        height: 4.8rem;
 
         &:disabled {
             --background-color: transparent;
@@ -41,6 +43,11 @@
             & svg path {
                 fill: var(--color-transparent-white);
             }
+        }
+
+        & svg {
+            width: 2.4rem;
+            height: 2.4rem;
         }
 
         &_white {
