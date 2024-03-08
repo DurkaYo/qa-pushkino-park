@@ -1,8 +1,9 @@
 import Link from "next/link";
 import type {JSX} from "react";
 
-
 import styles from './styles.module.scss';
+
+import {SubscribeEmail} from "/features/subscribe-email";
 
 export function Footer(): JSX.Element {
     return (
@@ -58,6 +59,9 @@ export function Footer(): JSX.Element {
                         </div>
                         <div className={`${styles['footer__subscribe']}`}>
                             <div className={`${styles['footer__work-time-heading']}`}>Эксклюзивные новости</div>
+                            <div className={`${styles['footer__subscribe-email']}`}>
+                                <SubscribeEmail />
+                            </div>
                         </div>
                     </div>
                     <div className={`${styles['footer__contacts']}`}>

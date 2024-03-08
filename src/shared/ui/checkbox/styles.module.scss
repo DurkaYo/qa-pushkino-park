@@ -1,3 +1,5 @@
+@import "../../../app/_styles/mixins";
+
 .checkbox {
     position: absolute;
     z-index: -1;
@@ -7,6 +9,16 @@
         display: inline-flex;
         align-items: center;
         user-select: none;
+
+        font-weight: 400;
+        font-size: 1.4rem;
+        line-height: 1.43;
+        color: #fff;
+
+        @include screen-breakpoint($screen-middle-px) {
+            font-size: 1.2rem;
+            line-height: 1.66667;
+        }
 
         &::before {
             content: '';
@@ -21,6 +33,7 @@
             background-repeat: no-repeat;
             background-position: center center;
             background-size: 50% 50%;
+            background-color: white;
         }
     }
 

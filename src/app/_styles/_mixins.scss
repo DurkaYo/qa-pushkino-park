@@ -8,7 +8,7 @@
 
 $screen-large-px: 1440px;
 $screen-middle-px: 720px;
-$screen-small-px: 360px;
+$screen-small-px: 375px;
 
 @mixin screen-breakpoint($breakpoint) {
     @media screen and (max-width: $breakpoint) {
