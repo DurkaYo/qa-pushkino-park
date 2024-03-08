@@ -9,9 +9,9 @@ import {Checkbox} from "/shared/ui/checkbox";
 export default function HomePage(): JSX.Element {
     return (
         <UISection defaultClass={styles['section-block']}>
-            <h1 className="h1 h1_caps">Home page НАХ</h1>
-            <br/>
-            <Checkbox id='email' label='согласен получать письма'/>
+            <div style={{height: '150vh'}}>
+                HOME PAGE
+            </div>
         </UISection>
     );
 }

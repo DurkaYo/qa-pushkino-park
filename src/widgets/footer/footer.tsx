@@ -1,11 +1,18 @@
+'use client';
+
 import Link from "next/link";
 import type {JSX} from "react";
 
 import styles from './styles.module.scss';
 
 import {SubscribeEmail} from "/features/subscribe-email";
+import {SocialBlock} from "/shared/ui/social-block";
 
 export function Footer(): JSX.Element {
+    const scrollToTop = ():void => {
+        window.scrollTo({top: 0, behavior: 'smooth'})
+    }
+
     return (
         <footer className={styles['footer']}>
             <div className={styles['footer__white-block']}>
@@ -14,7 +21,10 @@ export function Footer(): JSX.Element {
                         <div className={styles['footer__logo-img']}>
                             <img src="/images/main-logo/black.png" alt="Логотип Пушкино Парк"/>
                         </div>
-                        <div className={styles['footer__up-link']}>
+                        <div
+                            className={styles['footer__up-link']}
+                            onClick={scrollToTop}
+                        >
                             <span>Наверх</span>
                             <svg className='svg-icon' viewBox="0 0 24 24" width="24" height="24">
                                 <use href="/images/icons/sprite.svg#arrow-up" x="0" y="0"></use>
@@ -71,14 +81,17 @@ export function Footer(): JSX.Element {
                                 шоссе, стр. 104
                             </div>
                         </div>
-                        <div className={`${styles['footer__social']}`}>
-                            <Link href="#!" className={`${styles['footer__social-link']}`}>
-                                <img src="/images/icons/vkontakte.png" alt="Vkontakte"/>
-                            </Link>
-                            <Link href="#!" className={`${styles['footer__social-link']}`}>
-                                <img src="/images/icons/telegram.png" alt="Telegram"/>
-                            </Link>
-                        </div>
+
+                        <SocialBlock />
+
+                        {/*<div className={`${styles['footer__social']}`}>*/}
+                        {/*    <Link href="#!" className={`${styles['footer__social-link']}`}>*/}
+                        {/*        <img src="/images/icons/vkontakte.png" alt="Vkontakte"/>*/}
+                        {/*    </Link>*/}
+                        {/*    <Link href="#!" className={`${styles['footer__social-link']}`}>*/}
+                        {/*        <img src="/images/icons/telegram.png" alt="Telegram"/>*/}
+                        {/*    </Link>*/}
+                        {/*</div>*/}
                     </div>
                 </div>
             </div>

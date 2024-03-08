@@ -1,0 +1,33 @@
+.header {
+    --background-color: black;
+
+    position: static;
+    background-color: var(--background-color);
+
+    &__top-line {
+        --color: var(--color-white);
+
+        padding: 2.8rem 0 2.4rem 0;
+        color: var(--color);
+    }
+
+    &__top-line-flex-wrap {
+
+    }
+
+    &__logo {
+
+    }
+
+    &__working-time {
+
+    }
+
+    &__phone-number {
+
+    }
+
+    &__menu-btn {
+
+    }
+}
