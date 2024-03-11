@@ -6,7 +6,7 @@ import type {InputProps} from './config';
 
 export function Input({
   attributes,
-  inputTypeSearch = false,
+  isInputTypeSearch = false,
   width,
 }: InputProps): JSX.Element {
     return (
@@ -22,7 +22,7 @@ export function Input({
                 {...attributes}
                 className={`
                     ${styles.input}
-                    ${inputTypeSearch ? styles.input__search : ''}
+                    ${isInputTypeSearch ? styles.input__search : ''}
                     ${width ? 'input_custom-width' : ''}
                 `}
             />

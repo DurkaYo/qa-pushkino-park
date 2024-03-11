@@ -1,19 +1,8 @@
 @import "../../../app/_styles/mixins";
 
-.social-block {
-    display: flex;
-    column-gap: 2rem;
-    justify-content: end;
-
-    @include screen-breakpoint($screen-small-px) {
-        justify-content: start;
-    }
-
-    &__link {
-
-        & img {
-            width: 3rem;
-            height: 3rem;
-        }
+.social-link {
+    & img {
+        width: 3rem;
+        height: 3rem;
     }
 }

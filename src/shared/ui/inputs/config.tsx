@@ -1,5 +1,5 @@
 export interface InputProps {
-    inputTypeSearch?: boolean,
+    isInputTypeSearch?: boolean,
     attributes: object,
     width?: string,
 }

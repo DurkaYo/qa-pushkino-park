@@ -82,7 +82,9 @@ export function Footer(): JSX.Element {
                             </div>
                         </div>
 
-                        <SocialBlock />
+                        <div className={`${styles['footer__social-links']}`}>
+                            <SocialBlock />
+                        </div>
 
                         {/*<div className={`${styles['footer__social']}`}>*/}
                         {/*    <Link href="#!" className={`${styles['footer__social-link']}`}>*/}
