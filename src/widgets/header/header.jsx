@@ -13,7 +13,7 @@ import {WORKING_TIME_GALLERY, WORKING_TIME_CINEMA, PHONE_NUMBER} from "/shared/c
 export function Header() {
     const [colorIconSvg, setColorIconSvg] = useState('white');
 
-    const styleVariables = document.documentElement.style; // CSSStyleDeclaration
+    const styleVariables = typeof window === 'object' ? document.documentElement.style : null; // CSSStyleDeclaration
 
     useEffect(() => {
         if (location.pathname === '/') {
@@ -135,14 +135,13 @@ export function Header() {
                 </div>
 
                 <nav className={styles['header__nav']}>
-
                     <div className={styles['header__nav-menu-list']}>
-                        <Link href='#!' className={styles['header__nav-main-link']}>Магазины</Link>
+                        <Link href='#!' className={`${styles['header__nav-main-link']} ${styles['header__nav-main-link_desk']}`}>Магазины</Link>
                         <div className={styles['header__nav-heading']}>
                             <span>Магазины</span>
                             <SvgIcon id='chevron' color='black' />
                         </div>
-                        <div className={styles['header__nav-sub-links']}>
+                        <div className={`${styles['header__nav-sub-links']} hidden`}>
                             <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
                             <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
                             <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
@@ -152,12 +151,27 @@ export function Header() {
                             <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
                             <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
                         </div>
-                        <Link href='#!' className={styles['header__nav-main-link']}>Магазины</Link>
+                        <Link href='#!' className={`${styles['header__nav-main-link']} ${styles['header__nav-main-link_desk']}`}>Магазины</Link>
+                        <div className={styles['header__nav-heading']}>
+                            <span>кафе и рестораны</span>
+                            <SvgIcon id='chevron' color='black' />
+                        </div>
+                        <div className={`${styles['header__nav-sub-links']} hidden`}>
+                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
+                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
+                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
+                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
+                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
+                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
+                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
+                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
+                        </div>
+                        <Link href='#!' className={`${styles['header__nav-main-link']} ${styles['header__nav-main-link_desk']}`}>Магазины</Link>
                         <div className={styles['header__nav-heading']}>
                             <span>Магазины</span>
                             <SvgIcon id='chevron' color='black' />
                         </div>
-                        <div className={styles['header__nav-sub-links']}>
+                        <div className={`${styles['header__nav-sub-links']} hidden`}>
                             <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
                             <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
                             <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
@@ -167,27 +181,12 @@ export function Header() {
                             <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
                             <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
                         </div>
-                        <Link href='#!' className={styles['header__nav-main-link']}>Магазины</Link>
+                        <Link href='#!' className={`${styles['header__nav-main-link']} ${styles['header__nav-main-link_desk']}`}>Магазины</Link>
                         <div className={styles['header__nav-heading']}>
                             <span>Магазины</span>
                             <SvgIcon id='chevron' color='black' />
                         </div>
-                        <div className={styles['header__nav-sub-links']}>
-                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
-                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
-                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
-                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
-                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
-                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
-                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
-                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
-                        </div>
-                        <Link href='#!' className={styles['header__nav-main-link']}>Магазины</Link>
-                        <div className={styles['header__nav-heading']}>
-                            <span>Магазины</span>
-                            <SvgIcon id='chevron' color='black' />
-                        </div>
-                        <div className={styles['header__nav-sub-links']}>
+                        <div className={`${styles['header__nav-sub-links']} hidden`}>
                             <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
                             <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
                             <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>

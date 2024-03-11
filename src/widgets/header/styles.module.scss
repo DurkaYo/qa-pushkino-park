@@ -233,11 +233,33 @@
     }
 
     &__nav {
+        display: flex;
+        column-gap: 17.5rem;
+        //max-height: 80vh;
+        //overflow-y: auto;
 
+        @include screen-breakpoint($screen-middle-px) {
+            column-gap: 4rem;
+        }
+
+        @include screen-breakpoint($screen-small-px) {
+            flex-direction: column;
+            gap: 6rem 0;
+        }
     }
 
     &__nav-wrapper {
+        display: flex;
+        column-gap: 17.5rem;
 
+        @include screen-breakpoint($screen-middle-px) {
+            flex-direction: column;
+            gap: 5rem 0;
+        }
+
+        @include screen-breakpoint($screen-small-px) {
+            gap: 6rem 0;
+        }
     }
 
     &__nav-menu-list {
@@ -245,38 +267,97 @@
     }
 
     &__nav-main-link {
+        display: block;
+        font-weight: 600;
+        font-size: 2.2rem;
+        line-height: 1.27;
+        text-transform: uppercase;
+        color: var(--color-black);
+        margin-bottom: 2.4rem;
 
+        @include screen-breakpoint($screen-middle-px) {
+            font-weight: 400;
+            font-size: 1.8rem;
+            line-height: 1.33;
+            text-transform: none;
+            margin-bottom: 1.6rem;
+        }
+
+        &_desk {
+            @include screen-breakpoint($screen-middle-px) {
+                display: none;
+            }
+        }
     }
 
     &__nav-heading {
+        display: none;
+        font-weight: 600;
+        font-size: 2.2rem;
+        line-height: 1.27273;
+        text-transform: uppercase;
+        color: var(--color-primary-blue);
+        margin-bottom: 2.4rem;
 
+        @include screen-breakpoint($screen-middle-px) {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 32rem;
+        }
     }
 
     &__nav-sub-links {
+        display: none;
 
+        @include screen-breakpoint($screen-middle-px) {
+            display: block;
+        }
     }
 
     &__nav-sub-link {
+        display: block;
+        font-weight: 400;
+        font-size: 1.8rem;
+        line-height: 1.33333;
+        color: var(--color-black);
+        margin-bottom: 1.6rem;
 
+        &:last-child {
+            margin-bottom: 3.2rem;
+        }
     }
 
     &__nav-working-time {
+        display: none;
 
+        @include screen-breakpoint($screen-middle-px) {
+            display: block;
+        }
     }
 
     &__nav-working-time-wrapper {
+        display: flex;
+        column-gap: 4rem;
 
+        @include screen-breakpoint($screen-small-px) {
+            flex-direction: column;
+            gap: 3rem 0;
+        }
     }
 
     &__nav-working-time-block {
-
+        font-size: 1.8rem;
+        line-height: 1.33333;
+        color: var(--color-black);
     }
 
     &__nav-working-time-heading {
-
+        font-weight: 400;
+        margin-bottom: 1.2rem;
     }
 
     &__nav-working-time-data {
-
+        font-weight: 600;
     }
 }
