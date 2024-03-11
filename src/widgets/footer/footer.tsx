@@ -1,15 +1,15 @@
 'use client';
 
 import Link from "next/link";
-import type {JSX} from "react";
 
 import styles from './styles.module.scss';
 
 import {SubscribeEmail} from "/features/subscribe-email";
 import {SocialBlock} from "/shared/ui/social-block";
+import {WORKING_TIME_CINEMA, WORKING_TIME_GALLERY, ADDRESS, MENU_LINKS} from "/shared/config/constants";
 
-export function Footer(): JSX.Element {
-    const scrollToTop = ():void => {
+export function Footer() {
+    const scrollToTop = () => {
         window.scrollTo({top: 0, behavior: 'smooth'})
     }
 
@@ -33,23 +33,18 @@ export function Footer(): JSX.Element {
                     </div>
 
                     <div className={styles['footer__menu-list']}>
-                        <div className={styles['footer__menu-list-block']}>
-                            <Link href='#!' className={styles['footer__menu-link']}>Магазины</Link>
-                            <Link href='#!' className={styles['footer__menu-link']}>Кафе и рестораны</Link>
-                            <Link href='#!' className={styles['footer__menu-link']}>Развлечения</Link>
-                            <Link href='#!' className={styles['footer__menu-link']}>Услуги и сервис</Link>
-                        </div>
-                        <div className={styles['footer__menu-list-block']}>
-                            <Link href='#!' className={styles['footer__menu-link']}>Новости и мероприятия</Link>
-                            <Link href='#!' className={styles['footer__menu-link']}>Акции</Link>
-                        </div>
-                        <div className={styles['footer__menu-list-block']}>
-                            <Link href='#!' className={styles['footer__menu-link']}>Контакты</Link>
-                            <Link href='#!' className={styles['footer__menu-link']}>Вакансии</Link>
-                            <Link href='#!' className={styles['footer__menu-link']}>Арендаторам</Link>
-                            <Link href='#!' className={styles['footer__menu-link']}>О ТРЦ</Link>
-                            <Link href='#!' className={styles['footer__menu-link']}>Правила ТРЦ</Link>
-                        </div>
+                        {
+                            MENU_LINKS.map((menuList : object, index) => (
+                                    <div className={styles['footer__menu-list-block']} key={index}>
+                                        {
+                                            Object.keys(menuList).map((key, index) => (
+                                                <Link href={menuList[key as keyof typeof menuList]['link']} className={styles['footer__menu-link']} key={index}>{key}</Link>
+                                            ))
+                                        }
+                                    </div>
+                                )
+                            )
+                        }
                     </div>
                 </div>
             </div>
@@ -59,13 +54,13 @@ export function Footer(): JSX.Element {
                     <div className={`${styles['footer__work-time']}`}>
                         <div className={`${styles['footer__work-time-institution']}`}>
                             <div className={`${styles['footer__work-time-heading']}`}>Галерея</div>
-                            <div className={`${styles['footer__work-time-days']}`}>Ежедневно</div>
-                            <div className={`${styles['footer__work-time-timing']}`}>10:00-22:00</div>
+                            <div className={`${styles['footer__work-time-days']}`}>{WORKING_TIME_GALLERY.days}</div>
+                            <div className={`${styles['footer__work-time-timing']}`}>{WORKING_TIME_GALLERY.hours}</div>
                         </div>
                         <div className={`${styles['footer__work-time-institution']}`}>
                             <div className={`${styles['footer__work-time-heading']}`}>Кинотеатр</div>
-                            <div className={`${styles['footer__work-time-days']}`}>Ежедневно</div>
-                            <div className={`${styles['footer__work-time-timing']}`}>10:00-02:00</div>
+                            <div className={`${styles['footer__work-time-days']}`}>{WORKING_TIME_CINEMA.days}</div>
+                            <div className={`${styles['footer__work-time-timing']}`}>{WORKING_TIME_CINEMA.hours}</div>
                         </div>
                         <div className={`${styles['footer__subscribe']}`}>
                             <div className={`${styles['footer__work-time-heading']}`}>Эксклюзивные новости</div>
@@ -77,23 +72,12 @@ export function Footer(): JSX.Element {
                     <div className={`${styles['footer__contacts']}`}>
                         <div className={`${styles['footer__contacts-data']}`}>
                             <div className={`${styles['footer__contacts-data-item']}`}>© 2024 ТРЦ «Пушкино Парк»</div>
-                            <div className={`${styles['footer__contacts-data-item']}`}>г. Пушкино, Красноармейское
-                                шоссе, стр. 104
-                            </div>
+                            <div className={`${styles['footer__contacts-data-item']}`}>{ADDRESS}</div>
                         </div>
 
                         <div className={`${styles['footer__social-links']}`}>
                             <SocialBlock />
                         </div>
-
-                        {/*<div className={`${styles['footer__social']}`}>*/}
-                        {/*    <Link href="#!" className={`${styles['footer__social-link']}`}>*/}
-                        {/*        <img src="/images/icons/vkontakte.png" alt="Vkontakte"/>*/}
-                        {/*    </Link>*/}
-                        {/*    <Link href="#!" className={`${styles['footer__social-link']}`}>*/}
-                        {/*        <img src="/images/icons/telegram.png" alt="Telegram"/>*/}
-                        {/*    </Link>*/}
-                        {/*</div>*/}
                     </div>
                 </div>
             </div>
