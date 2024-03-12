@@ -172,11 +172,10 @@ export function Header() {
                     <div className={styles['header__nav-menu-list']}>
                         {
                             Object.keys(MENU_LINKS[0]).map(mainLink => (
-                                <>
+                                <div key={MENU_LINKS[0][mainLink].id}>
                                     <Link
                                         href={MENU_LINKS[0][mainLink].link}
                                         className={`${styles['header__nav-main-link']} ${styles['header__nav-main-link_desk']}`}
-                                        key={`main-link-${MENU_LINKS[0][mainLink].id}`}
                                     >
                                         {mainLink}
                                     </Link>
@@ -186,7 +185,6 @@ export function Header() {
                                             ${styles['header__nav-heading_with-sub-links']}
                                             ${MENU_LINKS[0][mainLink].id === activeHeadingMenu ? styles['header__nav-heading_active'] : ''}
                                         `}
-                                        key={`heading-${MENU_LINKS[0][mainLink].id}`}
                                         onClick={() => setActiveHeadingMenu(MENU_LINKS[0][mainLink].id)}
                                     >
                                         <span>{mainLink}</span>
@@ -200,7 +198,6 @@ export function Header() {
                                             ${styles['header__nav-sub-links']}
                                             ${MENU_LINKS[0][mainLink].id === activeHeadingMenu ? styles['header__nav-sub-links_active'] : ''}
                                         `}
-                                        key={`sub-links-${MENU_LINKS[0][mainLink].id}`}
                                     >
                                         {
                                             Object.keys(MENU_LINKS[0][mainLink].subItems).map((subItem, index) => (
@@ -214,7 +211,7 @@ export function Header() {
                                             ))
                                         }
                                     </div>
-                                </>
+                                </div>
                             ))
                         }
                     </div>
