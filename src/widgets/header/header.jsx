@@ -8,24 +8,38 @@ import styles from './styles.module.scss';
 import {SocialBlock} from "@/shared/ui/social-block";
 import {SvgIcon} from "@/shared/ui/svg-icon";
 import {Input} from "@/shared/ui/inputs";
-import {MENU_LINKS, WORKING_TIME_GALLERY, WORKING_TIME_CINEMA, PHONE_NUMBER} from "@/shared/config/constants";
+import {
+    MENU_LINKS,
+    WORKING_TIME_GALLERY,
+    WORKING_TIME_CINEMA,
+    PHONE_NUMBER
+} from "@/shared/config/constants";
 
 export function Header() {
-    const [isActiveBurgerMenu, setIsActiveBurgerMenu] = useState(false);
-    const [activeHeadingMenu, setActiveHeadingMenu] = useState('');
-    const [colorIconSvg, setColorIconSvg] = useState('white');
+    const [isBurgerMenuActive, setIsBurgerMenuActive] = useState(false);
+    const [activeIdHeadingMenu, setActiveIdHeadingMenu] = useState('');
+    const [colorIconsSvg, setColorIconsSvg] = useState('white');
     const [iconBurgerMenu, setIconBurgerMenu] = useState('burger');
 
-    const isActiveBurgerMenuRef = useRef(isActiveBurgerMenu);
-    const _setIsActiveBurgerMenu = flag => {
-        isActiveBurgerMenuRef.current = flag;
-        setIsActiveBurgerMenu(flag);
+    const isBurgerMenuActiveRef = useRef(isBurgerMenuActive);
+    const _setIsBurgerMenuActive = flag => {
+        isBurgerMenuActiveRef.current = flag;
+        setIsBurgerMenuActive(flag);
     }
 
-    const styleVariables = typeof window === 'object' ? document.documentElement.style : null; // CSSStyleDeclaration
+    const isTypeOfWindowObject = typeof window === 'object';
+    const headerLogo = isTypeOfWindowObject
+        ? document.querySelector('.js-header-logo img')
+        : null;
+    const styleVariables = isTypeOfWindowObject
+        ? document.documentElement.style
+        : null;
+    const isCurrentLocationPathMain = isTypeOfWindowObject
+        ? location.pathname === '/'
+        : null;
 
     useEffect(() => {
-        if (location.pathname === '/') {
+        if (isCurrentLocationPathMain) {
             scrollChangeHeaderForMainPage();
         } else {
             changeHeaderForInternalPage();
@@ -35,11 +49,9 @@ export function Header() {
 
     useEffect(() => {
         showBurgerMenu();
-    }, [isActiveBurgerMenu]);
+    }, [isBurgerMenuActive]);
 
     function changeHeader(typeHeader) {
-        const headerLogo = document.querySelector('.js-header-logo img');
-
         if (typeHeader === 'white') {
             styleVariables.setProperty('--header-background-color', 'white');
             styleVariables.setProperty('--top-line-color', 'var(--color-black)');
@@ -49,7 +61,7 @@ export function Header() {
 
             headerLogo && headerLogo.setAttribute('src', '/images/main-logo/black.png');
 
-            setColorIconSvg('black');
+            setColorIconsSvg('black');
         } else if (typeHeader === 'black') {
             styleVariables.setProperty('--header-background-color', 'linear-gradient(180deg, rgba(0, 0, 0, .6) 0%, rgba(0, 0, 0, 0) 100%)');
             styleVariables.setProperty('--top-line-color', 'var(--color-white)');
@@ -59,13 +71,13 @@ export function Header() {
 
             headerLogo && headerLogo.setAttribute('src', '/images/main-logo/white.png');
 
-            setColorIconSvg('white');
+            setColorIconsSvg('white');
         }
     }
 
     function scrollChangeHeaderForMainPage() {
         document.addEventListener('wheel', event => {
-            if (!isActiveBurgerMenuRef.current) {
+            if (!isBurgerMenuActiveRef.current) {
                 if (scrollY < 5) {
                     styleVariables.setProperty('--display-cta', 'block');
                     changeHeader('black');
@@ -87,7 +99,7 @@ export function Header() {
 
     function scrollChangeHeaderForInternalPage() {
         document.addEventListener('wheel', event => {
-            if (!isActiveBurgerMenuRef.current) {
+            if (!isBurgerMenuActiveRef.current) {
                 if (scrollY < 201) {
                     styleVariables.setProperty('--display-cta', 'block');
                     styleVariables.setProperty('--header-position', 'static');
@@ -103,7 +115,7 @@ export function Header() {
     }
 
     function showBurgerMenu() {
-        if (isActiveBurgerMenu) {
+        if (isBurgerMenuActive) {
             styleVariables.setProperty('--header-position', 'fixed');
             styleVariables.setProperty('--display-cta', 'block');
             changeHeader('white');
@@ -113,9 +125,9 @@ export function Header() {
             setIconBurgerMenu('burger');
             document.body.classList.remove('body-hidden');
 
-            if (location.pathname !== '/' && scrollY < 201) {
+            if (!isCurrentLocationPathMain && scrollY < 201) {
                 styleVariables.setProperty('--header-position', 'static');
-            } else if (location.pathname === '/' && scrollY < 5) {
+            } else if (isCurrentLocationPathMain && scrollY < 5) {
                 changeHeader('black');
             }
         }
@@ -124,28 +136,27 @@ export function Header() {
     return (
         <header className={styles['header']}>
             <div className={`${styles['header']}__container`}>
-
                 <div className={styles['header__top-line']}>
                     <div className={styles['header__top-line-wrap']}>
                         <div className={`${styles['header__logo']} js-header-logo`}>
                             <img src="/images/main-logo/white.png" alt="Логотип Пушкино Парк"/>
                         </div>
                         <div className={styles['header__working-time']}>
-                            <SvgIcon id='clock' color={colorIconSvg} />
+                            <SvgIcon id='clock' color={colorIconsSvg} />
                             <span>{WORKING_TIME_GALLERY.hours}</span>
                         </div>
                     </div>
                     <div className={styles['header__top-line-wrap']}>
                         <div className={styles['header__phone-number']}>
-                            <SvgIcon id='call' color={colorIconSvg} />
+                            <SvgIcon id='call' color={colorIconsSvg} />
                             <span>{PHONE_NUMBER}</span>
                         </div>
                         <div className={styles['header__social-links']}>
                             <SocialBlock />
                         </div>
-                        <button className={styles['header__menu-btn']} onClick={() => _setIsActiveBurgerMenu(!isActiveBurgerMenu)}>
+                        <button className={styles['header__menu-btn']} onClick={() => _setIsBurgerMenuActive(!isBurgerMenuActive)}>
                             <span>Меню</span>
-                            <SvgIcon id={iconBurgerMenu} color={colorIconSvg} />
+                            <SvgIcon id={iconBurgerMenu} color={colorIconsSvg} />
                         </button>
                     </div>
                 </div>
@@ -174,7 +185,7 @@ export function Header() {
 
                 <nav className={`
                     ${styles['header__nav']}
-                    ${isActiveBurgerMenu ? styles['header__nav_active'] : ''}
+                    ${isBurgerMenuActive ? styles['header__nav_active'] : ''}
                 `}>
                     <div className={styles['header__nav-menu-list']}>
                         {
@@ -190,20 +201,20 @@ export function Header() {
                                         className={`
                                             ${styles['header__nav-heading']}
                                             ${styles['header__nav-heading_with-sub-links']}
-                                            ${MENU_LINKS[0][mainLink].id === activeHeadingMenu ? styles['header__nav-heading_active'] : ''}
+                                            ${MENU_LINKS[0][mainLink].id === activeIdHeadingMenu ? styles['header__nav-heading_active'] : ''}
                                         `}
-                                        onClick={() => setActiveHeadingMenu(MENU_LINKS[0][mainLink].id)}
+                                        onClick={() => setActiveIdHeadingMenu(MENU_LINKS[0][mainLink].id)}
                                     >
                                         <span>{mainLink}</span>
                                         <SvgIcon
                                             id="chevron"
-                                            color={MENU_LINKS[0][mainLink].id === activeHeadingMenu ? '#3383a4' : '#000'}
+                                            color={MENU_LINKS[0][mainLink].id === activeIdHeadingMenu ? '#3383a4' : '#000'}
                                         />
                                     </div>
                                     <div
                                         className={`
                                             ${styles['header__nav-sub-links']}
-                                            ${MENU_LINKS[0][mainLink].id === activeHeadingMenu ? styles['header__nav-sub-links_active'] : ''}
+                                            ${MENU_LINKS[0][mainLink].id === activeIdHeadingMenu ? styles['header__nav-sub-links_active'] : ''}
                                         `}
                                     >
                                         {
@@ -268,7 +279,6 @@ export function Header() {
                         </div>
                     </div>
                 </nav>
-
             </div>
         </header>
     )
