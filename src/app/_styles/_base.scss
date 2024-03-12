@@ -42,6 +42,21 @@ body {
     }
 }
 
+.body-hidden {
+    overflow: hidden;
+
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 1000vh;
+        background: rgba(0, 0, 0, .5);
+    }
+}
+
 .svg-icon {
     width: 2.4rem;
     height: 2.4rem;

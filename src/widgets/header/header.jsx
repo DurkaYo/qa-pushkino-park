@@ -1,17 +1,26 @@
 'use client';
 
 import Link from "next/link";
-import {useState, useEffect} from "react";
+import {useState, useEffect, useRef} from "react";
 
 import styles from './styles.module.scss';
 
 import {SocialBlock} from "/shared/ui/social-block";
 import {SvgIcon} from "/shared/ui/svg-icon";
 import {Input} from "/shared/ui/inputs";
-import {WORKING_TIME_GALLERY, WORKING_TIME_CINEMA, PHONE_NUMBER} from "/shared/config/constants";
+import {MENU_LINKS, WORKING_TIME_GALLERY, WORKING_TIME_CINEMA, PHONE_NUMBER} from "/shared/config/constants";
 
 export function Header() {
+    const [isActiveBurgerMenu, setIsActiveBurgerMenu] = useState(false);
+    const [activeHeadingMenu, setActiveHeadingMenu] = useState('');
     const [colorIconSvg, setColorIconSvg] = useState('white');
+    const [iconBurgerMenu, setIconBurgerMenu] = useState('burger');
+
+    const isActiveBurgerMenuRef = useRef(isActiveBurgerMenu);
+    const _setIsActiveBurgerMenu = flag => {
+        isActiveBurgerMenuRef.current = flag;
+        setIsActiveBurgerMenu(flag);
+    }
 
     const styleVariables = typeof window === 'object' ? document.documentElement.style : null; // CSSStyleDeclaration
 
@@ -24,6 +33,10 @@ export function Header() {
         }
     }, []);
 
+    useEffect(() => {
+        showBurgerMenu();
+    }, [isActiveBurgerMenu]);
+
     function changeHeader(typeHeader) {
         const headerLogo = document.querySelector('.js-header-logo img');
 
@@ -32,6 +45,7 @@ export function Header() {
             styleVariables.setProperty('--top-line-color', 'var(--color-black)');
             styleVariables.setProperty('--top-line-border-color', 'rgba(0, 0, 0, .3)');
             styleVariables.setProperty('--cta-background-color', 'var(--bg-cyan)');
+            styleVariables.setProperty('--social-border-color', 'rgba(0, 0, 0, .3)');
 
             headerLogo && headerLogo.setAttribute('src', '/images/main-logo/black.png');
 
@@ -41,6 +55,7 @@ export function Header() {
             styleVariables.setProperty('--top-line-color', 'var(--color-white)');
             styleVariables.setProperty('--top-line-border-color', 'rgba(255, 255, 255, .3)');
             styleVariables.setProperty('--cta-background-color', 'transparent');
+            styleVariables.setProperty('--social-border-color', 'transparent');
 
             headerLogo && headerLogo.setAttribute('src', '/images/main-logo/white.png');
 
@@ -50,15 +65,17 @@ export function Header() {
 
     function scrollChangeHeaderForMainPage() {
         document.addEventListener('wheel', event => {
-            if (scrollY === 0) {
-                styleVariables.setProperty('--display-cta', 'block');
-                changeHeader('black');
-            } else if (scrollY > 0 && event.deltaY > 0) {
-                styleVariables.setProperty('--display-cta', 'none');
-                changeHeader('white');
-            } else if (scrollY > 0 && event.deltaY < 0) {
-                styleVariables.setProperty('--display-cta', 'block');
-                changeHeader('white');
+            if (!isActiveBurgerMenuRef.current) {
+                if (scrollY === 0) {
+                    styleVariables.setProperty('--display-cta', 'block');
+                    changeHeader('black');
+                } else if (scrollY > 0 && event.deltaY > 0) {
+                    styleVariables.setProperty('--display-cta', 'none');
+                    changeHeader('white');
+                } else if (scrollY > 0 && event.deltaY < 0) {
+                    styleVariables.setProperty('--display-cta', 'block');
+                    changeHeader('white');
+                }
             }
         });
     }
@@ -70,17 +87,31 @@ export function Header() {
 
     function scrollChangeHeaderForInternalPage() {
         document.addEventListener('wheel', event => {
-            if (scrollY === 0) {
-                styleVariables.setProperty('--display-cta', 'block');
-                styleVariables.setProperty('--header-position', 'static');
-            } else if (scrollY > 0 && event.deltaY > 0) {
-                styleVariables.setProperty('--display-cta', 'none');
-                styleVariables.setProperty('--header-position', 'fixed');
-            } else if (scrollY > 0 && event.deltaY < 0) {
-                styleVariables.setProperty('--display-cta', 'block');
-                styleVariables.setProperty('--header-position', 'fixed');
+            if (!isActiveBurgerMenuRef.current) {
+                if (scrollY === 0) {
+                    styleVariables.setProperty('--display-cta', 'block');
+                    styleVariables.setProperty('--header-position', 'static');
+                } else if (scrollY > 0 && event.deltaY > 0) {
+                    styleVariables.setProperty('--display-cta', 'none');
+                    styleVariables.setProperty('--header-position', 'fixed');
+                } else if (scrollY > 0 && event.deltaY < 0) {
+                    styleVariables.setProperty('--display-cta', 'block');
+                    styleVariables.setProperty('--header-position', 'fixed');
+                }
             }
         });
+    }
+
+    function showBurgerMenu() {
+        if (isActiveBurgerMenu) {
+            styleVariables.setProperty('--display-cta', 'block');
+            changeHeader('white');
+            setIconBurgerMenu('close');
+            document.body.classList.add('body-hidden');
+        } else {
+            setIconBurgerMenu('burger');
+            document.body.classList.remove('body-hidden');
+        }
     }
 
     return (
@@ -105,9 +136,9 @@ export function Header() {
                         <div className={styles['header__social-links']}>
                             <SocialBlock />
                         </div>
-                        <button className={styles['header__menu-btn']}>
+                        <button className={styles['header__menu-btn']} onClick={() => _setIsActiveBurgerMenu(!isActiveBurgerMenu)}>
                             <span>Меню</span>
-                            <SvgIcon id='burger' color={colorIconSvg} />
+                            <SvgIcon id={iconBurgerMenu} color={colorIconSvg} />
                         </button>
                     </div>
                 </div>
@@ -134,83 +165,88 @@ export function Header() {
                     </div>
                 </div>
 
-                <nav className={styles['header__nav']}>
+                <nav className={`
+                    ${styles['header__nav']}
+                    ${isActiveBurgerMenu ? styles['header__nav_active'] : ''}
+                `}>
                     <div className={styles['header__nav-menu-list']}>
-                        <Link href='#!' className={`${styles['header__nav-main-link']} ${styles['header__nav-main-link_desk']}`}>Магазины</Link>
-                        <div className={styles['header__nav-heading']}>
-                            <span>Магазины</span>
-                            <SvgIcon id='chevron' color='black' />
-                        </div>
-                        <div className={`${styles['header__nav-sub-links']} hidden`}>
-                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
-                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
-                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
-                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
-                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
-                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
-                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
-                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
-                        </div>
-                        <Link href='#!' className={`${styles['header__nav-main-link']} ${styles['header__nav-main-link_desk']}`}>Магазины</Link>
-                        <div className={styles['header__nav-heading']}>
-                            <span>кафе и рестораны</span>
-                            <SvgIcon id='chevron' color='black' />
-                        </div>
-                        <div className={`${styles['header__nav-sub-links']} hidden`}>
-                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
-                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
-                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
-                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
-                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
-                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
-                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
-                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
-                        </div>
-                        <Link href='#!' className={`${styles['header__nav-main-link']} ${styles['header__nav-main-link_desk']}`}>Магазины</Link>
-                        <div className={styles['header__nav-heading']}>
-                            <span>Магазины</span>
-                            <SvgIcon id='chevron' color='black' />
-                        </div>
-                        <div className={`${styles['header__nav-sub-links']} hidden`}>
-                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
-                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
-                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
-                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
-                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
-                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
-                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
-                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
-                        </div>
-                        <Link href='#!' className={`${styles['header__nav-main-link']} ${styles['header__nav-main-link_desk']}`}>Магазины</Link>
-                        <div className={styles['header__nav-heading']}>
-                            <span>Магазины</span>
-                            <SvgIcon id='chevron' color='black' />
-                        </div>
-                        <div className={`${styles['header__nav-sub-links']} hidden`}>
-                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
-                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
-                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
-                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
-                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
-                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
-                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
-                            <Link href='#!' className={styles['header__nav-sub-link']}>Женская одежда</Link>
-                        </div>
+                        {
+                            Object.keys(MENU_LINKS[0]).map(mainLink => (
+                                <>
+                                    <Link
+                                        href={MENU_LINKS[0][mainLink].link}
+                                        className={`${styles['header__nav-main-link']} ${styles['header__nav-main-link_desk']}`}
+                                        key={`main-link-${MENU_LINKS[0][mainLink].id}`}
+                                    >
+                                        {mainLink}
+                                    </Link>
+                                    <div
+                                        className={`
+                                            ${styles['header__nav-heading']}
+                                            ${styles['header__nav-heading_with-sub-links']}
+                                            ${MENU_LINKS[0][mainLink].id === activeHeadingMenu ? styles['header__nav-heading_active'] : ''}
+                                        `}
+                                        key={`heading-${MENU_LINKS[0][mainLink].id}`}
+                                        onClick={() => setActiveHeadingMenu(MENU_LINKS[0][mainLink].id)}
+                                    >
+                                        <span>{mainLink}</span>
+                                        <SvgIcon
+                                            id="chevron"
+                                            color={MENU_LINKS[0][mainLink].id === activeHeadingMenu ? '#3383a4' : '#000'}
+                                        />
+                                    </div>
+                                    <div
+                                        className={`
+                                            ${styles['header__nav-sub-links']}
+                                            ${MENU_LINKS[0][mainLink].id === activeHeadingMenu ? styles['header__nav-sub-links_active'] : ''}
+                                        `}
+                                        key={`sub-links-${MENU_LINKS[0][mainLink].id}`}
+                                    >
+                                        {
+                                            Object.keys(MENU_LINKS[0][mainLink].subItems).map((subItem, index) => (
+                                                <Link
+                                                    href={MENU_LINKS[0][mainLink].subItems[subItem]}
+                                                    className={styles['header__nav-sub-link']}
+                                                    key={index}
+                                                >
+                                                    {subItem}
+                                                </Link>
+                                            ))
+                                        }
+                                    </div>
+                                </>
+                            ))
+                        }
                     </div>
 
                     <div className={styles['header__nav-wrapper']}>
                         <div className={styles['header__nav-menu-list']}>
                             <div className={styles['header__nav-heading']}>Новости</div>
-                            <Link href="#!" className={styles['header__nav-main-link']}>Новости и мероприятия</Link>
-                            <Link href="#!" className={styles['header__nav-main-link']}>Магазины</Link>
+                            {
+                                Object.keys(MENU_LINKS[1]).map(mainLink => (
+                                    <Link
+                                        href={MENU_LINKS[1][mainLink].link}
+                                        className={styles['header__nav-main-link']}
+                                        key={MENU_LINKS[1][mainLink].id}
+                                    >
+                                        {mainLink}
+                                    </Link>
+                                ))
+                            }
                         </div>
                         <div className={styles['header__nav-menu-list']}>
                             <div className={styles['header__nav-heading']}>Информация</div>
-                            <Link href="#!" className={styles['header__nav-main-link']}>Контакты</Link>
-                            <Link href="#!" className={styles['header__nav-main-link']}>Контакты</Link>
-                            <Link href="#!" className={styles['header__nav-main-link']}>Контакты</Link>
-                            <Link href="#!" className={styles['header__nav-main-link']}>Контакты</Link>
-                            <Link href="#!" className={styles['header__nav-main-link']}>Контакты</Link>
+                            {
+                                Object.keys(MENU_LINKS[2]).map(mainLink => (
+                                    <Link
+                                        href={MENU_LINKS[2][mainLink].link}
+                                        className={styles['header__nav-main-link']}
+                                        key={MENU_LINKS[2][mainLink].id}
+                                    >
+                                        {mainLink}
+                                    </Link>
+                                ))
+                            }
                         </div>
                         <div className={styles['header__nav-working-time']}>
                             <div className={styles['header__nav-heading']}>Время работы</div>
