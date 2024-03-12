@@ -1,7 +1,7 @@
 import type {JSX} from "react";
 import type {Metadata} from "next";
 
-import HomePage from "/app/(pages)/home/page";
+import HomePage from "@/app/(pages)/home/page";
 
 export const metadata: Metadata = {
   title: "Home Page Title",

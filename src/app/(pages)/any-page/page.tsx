@@ -2,7 +2,7 @@ import type {JSX} from "react";
 
 import styles from './styles.module.scss';
 
-import {UISection} from "/shared/ui/section";
+import {UISection} from "@/shared/ui/section";
 
 export default function AnyPage(): JSX.Element {
     return (

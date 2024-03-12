@@ -1,6 +1,6 @@
 import type {JSX} from "react";
 
-import type {SectionProps} from "/shared/ui/section/config";
+import type {SectionProps} from "@/shared/ui/section/config";
 
 export function Section({defaultClass, children}: SectionProps): JSX.Element {
     return (

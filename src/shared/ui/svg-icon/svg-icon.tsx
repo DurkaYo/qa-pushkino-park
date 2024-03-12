@@ -1,6 +1,6 @@
 import { JSX } from "react";
 
-import {SvgIconProps} from "/shared/ui/svg-icon/config";
+import {SvgIconProps} from "@/shared/ui/svg-icon/config";
 
 export function SvgIcon({id, color}: SvgIconProps): JSX.Element {
     return (

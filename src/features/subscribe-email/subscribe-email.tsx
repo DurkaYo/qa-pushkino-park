@@ -2,9 +2,9 @@ import { JSX } from "react";
 
 import styles from './styles.module.scss';
 
-import {Input} from "/shared/ui/inputs";
-import {ButtonCircleTransparentWhite} from "/shared/ui/buttons";
-import {Checkbox} from "/shared/ui/checkbox";
+import {Input} from "@/shared/ui/inputs";
+import {ButtonCircleTransparentWhite} from "@/shared/ui/buttons";
+import {Checkbox} from "@/shared/ui/checkbox";
 
 export function SubscribeEmail(): JSX.Element {
     return (

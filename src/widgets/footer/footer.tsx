@@ -4,9 +4,9 @@ import Link from "next/link";
 
 import styles from './styles.module.scss';
 
-import {SubscribeEmail} from "/features/subscribe-email";
-import {SocialBlock} from "/shared/ui/social-block";
-import {WORKING_TIME_CINEMA, WORKING_TIME_GALLERY, ADDRESS, MENU_LINKS} from "/shared/config/constants";
+import {SubscribeEmail} from "@/features/subscribe-email";
+import {SocialBlock} from "@/shared/ui/social-block";
+import {WORKING_TIME_CINEMA, WORKING_TIME_GALLERY, ADDRESS, MENU_LINKS} from "@/shared/config/constants";
 
 export function Footer() {
     const scrollToTop = () => {

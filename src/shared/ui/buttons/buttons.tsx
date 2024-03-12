@@ -2,7 +2,7 @@ import {JSX} from "react";
 
 import styles from './styles.module.scss';
 
-import type {ButtonProps, ButtonCircleProps} from "/shared/ui/buttons/config";
+import type {ButtonProps, ButtonCircleProps} from "@/shared/ui/buttons/config";
 
 export function ButtonFull({children, width = 'fit-content', isDisabled = false}: ButtonProps): JSX.Element {
     return (
