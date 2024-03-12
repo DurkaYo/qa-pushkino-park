@@ -66,7 +66,7 @@ export function Header() {
     function scrollChangeHeaderForMainPage() {
         document.addEventListener('wheel', event => {
             if (!isActiveBurgerMenuRef.current) {
-                if (scrollY === 0) {
+                if (scrollY < 5) {
                     styleVariables.setProperty('--display-cta', 'block');
                     changeHeader('black');
                 } else if (scrollY > 0 && event.deltaY > 0) {
@@ -88,13 +88,13 @@ export function Header() {
     function scrollChangeHeaderForInternalPage() {
         document.addEventListener('wheel', event => {
             if (!isActiveBurgerMenuRef.current) {
-                if (scrollY === 0) {
+                if (scrollY < 201) {
                     styleVariables.setProperty('--display-cta', 'block');
                     styleVariables.setProperty('--header-position', 'static');
-                } else if (scrollY > 0 && event.deltaY > 0) {
+                } else if (scrollY > 200 && event.deltaY > 0) {
                     styleVariables.setProperty('--display-cta', 'none');
                     styleVariables.setProperty('--header-position', 'fixed');
-                } else if (scrollY > 0 && event.deltaY < 0) {
+                } else if (scrollY > 200 && event.deltaY < 0) {
                     styleVariables.setProperty('--display-cta', 'block');
                     styleVariables.setProperty('--header-position', 'fixed');
                 }
@@ -104,6 +104,7 @@ export function Header() {
 
     function showBurgerMenu() {
         if (isActiveBurgerMenu) {
+            styleVariables.setProperty('--header-position', 'fixed');
             styleVariables.setProperty('--display-cta', 'block');
             changeHeader('white');
             setIconBurgerMenu('close');
@@ -111,6 +112,12 @@ export function Header() {
         } else {
             setIconBurgerMenu('burger');
             document.body.classList.remove('body-hidden');
+
+            if (location.pathname !== '/' && scrollY < 201) {
+                styleVariables.setProperty('--header-position', 'static');
+            } else if (location.pathname === '/' && scrollY < 5) {
+                changeHeader('black');
+            }
         }
     }
 
@@ -215,7 +222,6 @@ export function Header() {
                             ))
                         }
                     </div>
-
                     <div className={styles['header__nav-wrapper']}>
                         <div className={styles['header__nav-menu-list']}>
                             <div className={styles['header__nav-heading']}>Новости</div>
@@ -262,6 +268,7 @@ export function Header() {
                         </div>
                     </div>
                 </nav>
+
             </div>
         </header>
     )
