@@ -56,6 +56,11 @@
             --border: 1px solid var(--color-white);
         }
 
+        &_gray {
+            --background-color: transparent;
+            --border: 1px solid var(--color-transparent-black);
+        }
+
         &_black {
             --background-color: transparent;
             --border: 1px solid var(--color-black);

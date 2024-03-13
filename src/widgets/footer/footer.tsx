@@ -65,7 +65,7 @@ export function Footer() {
                         <div className={`${styles['footer__subscribe']}`}>
                             <div className={`${styles['footer__work-time-heading']}`}>Эксклюзивные новости</div>
                             <div className={`${styles['footer__subscribe-email']}`}>
-                                <SubscribeEmail />
+                                <SubscribeEmail button='ButtonCircleTransparentWhite' />
                             </div>
                         </div>
                     </div>

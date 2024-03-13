@@ -6,10 +6,18 @@ import styles from './styles.module.scss';
 export function SocialBlock(): JSX.Element {
     return (
         <>
-            <Link href="#!" className={`${styles['social-link']}`}>
+            <Link
+                href="https://vk.com/"
+                className={`${styles['social-link']}`}
+                target='_blank'
+            >
                 <img src="/images/icons/vkontakte.png" alt="Vkontakte"/>
             </Link>
-            <Link href="#!" className={`${styles['social-link']}`}>
+            <Link
+                href="https://telegram.org/"
+                className={`${styles['social-link']}`}
+                target='_blank'
+            >
                 <img src="/images/icons/telegram.png" alt="Telegram"/>
             </Link>
         </>

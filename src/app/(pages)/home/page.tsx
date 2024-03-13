@@ -2,14 +2,14 @@ import type {JSX} from "react";
 
 import styles from './styles.module.scss';
 
-import {UISection} from "@/shared/ui/section";
+import {MainPageBanners} from "@/widgets/main-page/banners";
+import {MainPageSubscribe} from "@/widgets/main-page/subscribe";
 
 export default function HomePage(): JSX.Element {
     return (
-        <UISection defaultClass={styles['section-block']}>
-            <div style={{height: '150vh'}}>
-                HOME PAGE
-            </div>
-        </UISection>
+        <main className={styles['home-page']}>
+            <MainPageBanners />
+            <MainPageSubscribe />
+        </main>
     );
 }
