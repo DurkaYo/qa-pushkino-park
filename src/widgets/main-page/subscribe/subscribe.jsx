@@ -16,6 +16,7 @@ export function MainPageSubscribe() {
                         <Link
                             href={link.href}
                             className={styles['subscribe__link']}
+                            key={link.id}
                         >
                             {link.anchor}
                         </Link>

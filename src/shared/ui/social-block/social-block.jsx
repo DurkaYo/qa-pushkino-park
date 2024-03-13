@@ -1,9 +1,8 @@
 import Link from "next/link";
-import type { JSX } from "react";
 
 import styles from './styles.module.scss';
 
-export function SocialBlock(): JSX.Element {
+export function SocialBlock() {
     return (
         <>
             <Link

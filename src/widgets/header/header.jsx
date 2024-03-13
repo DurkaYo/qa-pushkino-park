@@ -5,15 +5,15 @@ import {useState, useEffect, useRef} from "react";
 
 import styles from './styles.module.scss';
 
-import {SocialBlock} from "@/shared/ui/social-block";
-import {SvgIcon} from "@/shared/ui/svg-icon";
-import {Input} from "@/shared/ui/inputs";
+import {SocialBlock} from "../../shared/ui/social-block";
+import {SvgIcon} from "../../shared/ui/svg-icon";
+import {Input} from "../../shared/ui/inputs";
 import {
     MENU_LINKS,
     WORKING_TIME_GALLERY,
     WORKING_TIME_CINEMA,
     PHONE_NUMBER
-} from "@/shared/config/constants";
+} from "../../shared/config/constants";
 
 export function Header() {
     const [isBurgerMenuActive, setIsBurgerMenuActive] = useState(false);

@@ -4,9 +4,9 @@ import Link from "next/link";
 
 import styles from './styles.module.scss';
 
-import {SubscribeEmail} from "@/features/subscribe-email";
-import {SocialBlock} from "@/shared/ui/social-block";
-import {WORKING_TIME_CINEMA, WORKING_TIME_GALLERY, ADDRESS, MENU_LINKS} from "@/shared/config/constants";
+import {SubscribeEmail} from "../../features/subscribe-email";
+import {SocialBlock} from "../../shared/ui/social-block";
+import {WORKING_TIME_CINEMA, WORKING_TIME_GALLERY, ADDRESS, MENU_LINKS} from "../../shared/config/constants";
 
 export function Footer() {
     const scrollToTop = () => {
@@ -34,11 +34,11 @@ export function Footer() {
 
                     <div className={styles['footer__menu-list']}>
                         {
-                            MENU_LINKS.map((menuList : object, index) => (
+                            MENU_LINKS.map((menuList, index) => (
                                     <div className={styles['footer__menu-list-block']} key={index}>
                                         {
                                             Object.keys(menuList).map((key, index) => (
-                                                <Link href={menuList[key as keyof typeof menuList]['link']} className={styles['footer__menu-link']} key={index}>{key}</Link>
+                                                <Link href={menuList[key]['link']} className={styles['footer__menu-link']} key={index}>{key}</Link>
                                             ))
                                         }
                                     </div>

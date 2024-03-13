@@ -1,30 +1,25 @@
 import {Raleway, Russo_One} from "next/font/google";
-import {NextFontWithVariable} from "next/dist/compiled/@next/font";
 
 import './_styles/global.scss';
 
-import {Header} from "@/widgets/header/";
-import {Footer} from "@/widgets/footer/";
+import {Header} from "../widgets/header";
+import {Footer} from "../widgets/footer/";
 
-const raleway: NextFontWithVariable = Raleway({
+const raleway = Raleway({
   subsets: ['cyrillic'],
   display: "swap",
   weight: ['400', '600'],
   variable: '--family-raleway',
 });
 
-const russoOne: NextFontWithVariable = Russo_One({
+const russoOne = Russo_One({
   subsets: ['cyrillic'],
   display: "swap",
   weight: ['400'],
   variable: '--family-russo-one',
 });
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({children}) {
   return (
     <html lang="ru" className={`${raleway.variable} ${russoOne.variable}`}>
       <body>

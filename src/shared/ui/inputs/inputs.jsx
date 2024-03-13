@@ -1,13 +1,9 @@
-import { JSX } from "react";
-
 import styles from './styles.module.scss';
-
-import type {InputProps} from './config';
 
 export function Input({
   attributes,
   isInputTypeSearch = false,
-}: InputProps): JSX.Element {
+}) {
 
     return (
         <>

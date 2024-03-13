@@ -1,0 +1,85 @@
+@import '../../../app/_styles/mixins';
+
+.stocks {
+
+  &__wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(24, 1fr);
+
+    @include screen-breakpoint($screen-small-px) {
+      display: block;
+    }
+  }
+
+  &__description {
+    background-color: var(--color-black);
+    grid-column: span 9; // 37%
+    padding: 5rem 10rem 5rem 13rem;
+
+    @include screen-breakpoint($screen-middle-px) {
+      padding: 4rem 6rem 4rem 3rem;
+      grid-column: span 12;
+    }
+  }
+
+  &__heading {
+    font-weight: 600;
+    font-size: 7.2rem;
+    line-height: 1.16667;
+    text-transform: uppercase;
+    color: var(--color-white);
+    margin-bottom: 8rem;
+
+    @include screen-breakpoint($screen-middle-px) {
+      font-size: 3.2rem;
+      letter-spacing: 0.01em;
+      margin-bottom: 2.4rem;
+    }
+  }
+
+  &__content {
+    font-weight: 400;
+    font-size: 1.8rem;
+    line-height: 1.33333;
+    color: var(--color-white);
+    margin-bottom: 4rem;
+
+    @include screen-breakpoint($screen-small-px) {
+      font-weight: 600;
+    }
+  }
+
+  &__button {
+    display: block;
+    font-weight: 600;
+    font-size: 1.8rem;
+    line-height: 1.33333;
+    color: var(--color-white);
+    background-color: var(--color-primary-orange);
+    padding: 1.2rem 2.4rem;
+    border-radius: 20rem;
+    width: fit-content;
+    margin-bottom: 34rem;
+
+    @include screen-breakpoint($screen-middle-px) {
+      margin-bottom: 7.3rem;
+    }
+  }
+
+  &__content-warning {
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 1.42857;
+    color: rgba(255, 255, 255, .5);
+  }
+
+  &__slider {
+    grid-column: span 15;
+
+    @include screen-breakpoint($screen-middle-px) {
+      grid-column: span 12;
+    }
+  }
+}

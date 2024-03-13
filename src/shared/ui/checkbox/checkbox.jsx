@@ -1,13 +1,6 @@
-import { JSX } from "react";
-
 import styles from './styles.module.scss';
 
-interface CheckboxProps {
-    id: string,
-    label?: string,
-}
-
-export function Checkbox({id, label = ''}: CheckboxProps): JSX.Element {
+export function Checkbox({id, label = ''}) {
     return (
         <>
             <input

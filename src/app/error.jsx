@@ -1,8 +1,6 @@
 'use client';
 
-import type {JSX} from "react";
-
-export default function Error(): JSX.Element {
+export default function Error() {
     return (
         <div>Ошибка рендеринга компонента</div>
     )

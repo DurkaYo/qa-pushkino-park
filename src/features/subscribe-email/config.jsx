@@ -11,7 +11,3 @@ export const BUTTONS = {
     ButtonCircleTransparentWhite: <ButtonCircleTransparentWhite />,
     ButtonCircleTransparentGray: <ButtonCircleTransparentGray />
 }
-
-export interface SubscribeEmailProps {
-    button: string,
-}
