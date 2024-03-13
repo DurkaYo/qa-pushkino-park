@@ -32,7 +32,7 @@ export function Header() {
         ? document.querySelector('.js-header-logo img')
         : null;
     const styleVariables = isTypeOfWindowObject
-        ? document.documentElement.style
+        ? document.querySelector('.js-header').style
         : null;
     const isCurrentLocationPathMain = isTypeOfWindowObject
         ? location.pathname === '/'
@@ -134,7 +134,7 @@ export function Header() {
     }
 
     return (
-        <header className={styles['header']}>
+        <header className={`${styles['header']} js-header`}>
             <div className={`${styles['header']}__container`}>
                 <div className={styles['header__top-line']}>
                     <div className={styles['header__top-line-wrap']}>
