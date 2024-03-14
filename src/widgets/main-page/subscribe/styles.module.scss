@@ -118,14 +118,6 @@
         display: flex;
         column-gap: 2rem;
 
-        @include screen-breakpoint($screen-middle-px) {
-            display: none;
-        }
-
-        @include screen-breakpoint($screen-small-px) {
-            display: flex;
-        }
-
         & a img {
             width: 6rem;
             height: 6rem;

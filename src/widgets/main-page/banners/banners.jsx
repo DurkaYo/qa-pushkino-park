@@ -1,6 +1,6 @@
 import styles from './styles.module.scss';
 
-import {UISection} from "@/shared/ui/section";
+import {UISection} from "../../../shared/ui/section";
 
 export function MainPageBanners() {
     return (

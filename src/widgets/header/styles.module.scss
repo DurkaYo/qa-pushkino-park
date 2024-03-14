@@ -13,6 +13,7 @@
     top: 0;
     width: 100%;
     background: var(--header-background-color);
+    z-index: 2;
 
     &__top-line {
         display: flex;
