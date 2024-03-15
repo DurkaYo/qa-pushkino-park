@@ -1,0 +1,124 @@
+@import "../../../app/_styles/mixins";
+
+.theatre {
+    max-width: 1440px;
+    margin: 0 auto;
+    background: var(--bg-rim);
+    padding: 5rem 0 7rem 0;
+
+    @include screen-breakpoint($screen-middle-px) {
+        padding: 4rem 0;
+    }
+
+    &__top-line {
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem 0;
+        margin-bottom: 2rem;
+
+        @include screen-breakpoint($screen-middle-px) {
+            flex-direction: column-reverse;
+        }
+    }
+
+    &__data {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 400;
+        font-size: 1.8rem;
+        line-height: 1.33333;
+        color: var(--color-white);
+    }
+
+    &__site {
+
+        @include screen-breakpoint($screen-middle-px) {
+            display: none;
+        }
+    }
+
+    &__date {}
+
+    &__heading {
+        font-weight: 600;
+        font-size: 7.2rem;
+        line-height: 1.16667;
+        text-transform: uppercase;
+        color: var(--color-white);
+
+        @include screen-breakpoint($screen-middle-px) {
+            font-size: 3.2rem;
+            letter-spacing: 0.01em;
+        }
+    }
+
+    &__slider-buttons {
+        display: flex;
+        column-gap: 1.2rem;
+        justify-content: right;
+        margin-bottom: 1.6rem;
+
+        & button {
+            cursor: pointer;
+        }
+    }
+
+    &__slide {}
+
+    &__slide-image {
+        width: 38rem;
+        height: 38rem;
+        border-radius: 2.4rem;
+        overflow: hidden;
+        margin-bottom: 1.6rem;
+
+        @include screen-breakpoint($screen-middle-px) {
+            width: 31rem;
+            height: 31rem;
+        }
+
+        @include screen-breakpoint($screen-small-px) {
+            width: 24rem;
+            height: 24rem;
+            margin-bottom: 1.2rem;
+        }
+
+        & img {
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    &__slide-title {
+        font-weight: 600;
+        font-size: 2.2rem;
+        line-height: 1.27273;
+        color: var(--color-transparent-white);
+        margin-bottom: 1.2rem;
+
+        @include screen-breakpoint($screen-middle-px) {
+            font-size: 1.8rem;
+            line-height: 1.33333;
+        }
+
+        @include screen-breakpoint($screen-small-px) {
+            margin-bottom: .8rem;
+        }
+    }
+
+    &__slide-date {
+        font-weight: 400;
+        font-size: 1.4rem;
+        line-height: 1.42857;
+        color: var(--color-transparent-white);
+
+        @include screen-breakpoint($screen-middle-px) {
+
+        }
+
+        @include screen-breakpoint($screen-small-px) {
+            font-size: 1.6rem;
+            line-height: 1.5;
+        }
+    }
+}

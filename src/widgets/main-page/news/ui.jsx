@@ -41,6 +41,7 @@ export function MainPageNews() {
                 ref={swiperRef}
                 slidesPerView={1}
                 spaceBetween={30}
+                speed={2000}
                 loop
             >
                 <SwiperSlide>
