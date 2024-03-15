@@ -11,17 +11,17 @@ export function MainPageSubscribe() {
     return (
         <UISection defaultClass={styles['subscribe']}>
             <div className={styles['subscribe__links']}>
-                {
-                    LINKS.map(link => (
-                        <Link
-                            href={link.href}
-                            className={styles['subscribe__link']}
-                            key={link.id}
-                        >
-                            {link.anchor}
-                        </Link>
-                    ))
-                }
+                    {
+                        LINKS.map(link => (
+                            <div className={styles['subscribe__link']} key={link.id}>
+                                <Link
+                                    href={link.href}
+                                >
+                                    {link.anchor}
+                                </Link>
+                            </div>
+                        ))
+                    }
             </div>
 
             <div className={styles['subscribe__wrapper']}>

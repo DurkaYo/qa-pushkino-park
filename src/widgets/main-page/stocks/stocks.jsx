@@ -43,14 +43,22 @@ export function MainPageStocks() {
                             <Swiper
                                 modules={[Autoplay]}
                                 direction="vertical"
-                                slidesPerView={1.5}
-                                // autoplay={{
-                                    // delay: 0,
-                                    // pauseOnMouseEnter: true,
-                                    // disableOnInteraction: false,
-                                //}}
+                                slidesPerView={.51}
+                                autoplay={{
+                                    delay: 0,
+                                    pauseOnMouseEnter: true,
+                                    disableOnInteraction: false,
+                                }}
                                 loop
-                                speed={3000}
+                                speed={20000}
+                                breakpoints={{
+                                    720: {
+                                        slidesPerView: .415,
+                                    },
+                                    1440: {
+                                        slidesPerView: .765,
+                                    }
+                                }}
                                 className={`${styles['stocks__swiper']} stocks__swiper`}
                             >
                                 <SwiperSlide>
@@ -58,77 +66,37 @@ export function MainPageStocks() {
                                         <Link href='#!' className={styles['stocks__slide-tile']}>
                                             <img src="/images/main-page/stock.png"/>
                                             <div className={styles['stocks__slide-heading']}>
-                                                Воспользуйтесь исключительными преимуществами!
+                                                1. Воспользуйтесь исключительными преимуществами!
                                             </div>
                                         </Link>
                                         <Link href='#!' className={styles['stocks__slide-tile']}>
                                             <img src="/images/main-page/stock.png"/>
                                             <div className={styles['stocks__slide-heading']}>
-                                                Воспользуйтесь исключительными преимуществами!
+                                                2. Воспользуйтесь исключительными преимуществами!
                                             </div>
                                         </Link>
                                         <Link href='#!' className={styles['stocks__slide-tile']}>
                                             <img src="/images/main-page/stock.png"/>
                                             <div className={styles['stocks__slide-heading']}>
-                                                Воспользуйтесь исключительными преимуществами!
+                                                3. Воспользуйтесь исключительными преимуществами!
                                             </div>
                                         </Link>
                                         <Link href='#!' className={styles['stocks__slide-tile']}>
                                             <img src="/images/main-page/stock.png"/>
                                             <div className={styles['stocks__slide-heading']}>
-                                                Воспользуйтесь исключительными преимуществами!
+                                                4. Воспользуйтесь исключительными преимуществами!
                                             </div>
                                         </Link>
                                         <Link href='#!' className={styles['stocks__slide-tile']}>
                                             <img src="/images/main-page/stock.png"/>
                                             <div className={styles['stocks__slide-heading']}>
-                                                Воспользуйтесь исключительными преимуществами!
+                                                5. Воспользуйтесь исключительными преимуществами!
                                             </div>
                                         </Link>
                                         <Link href='#!' className={styles['stocks__slide-tile']}>
                                             <img src="/images/main-page/stock.png"/>
                                             <div className={styles['stocks__slide-heading']}>
-                                                Воспользуйтесь исключительными преимуществами!
-                                            </div>
-                                        </Link>
-                                    </div>
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                    <div className={styles['stocks__swiper-slide']}>
-                                        <Link href='#!' className={styles['stocks__slide-tile']}>
-                                            <img src="/images/main-page/stock.png"/>
-                                            <div className={styles['stocks__slide-heading']}>
-                                                Воспользуйтесь исключительными преимуществами!
-                                            </div>
-                                        </Link>
-                                        <Link href='#!' className={styles['stocks__slide-tile']}>
-                                            <img src="/images/main-page/stock.png"/>
-                                            <div className={styles['stocks__slide-heading']}>
-                                                Воспользуйтесь исключительными преимуществами!
-                                            </div>
-                                        </Link>
-                                        <Link href='#!' className={styles['stocks__slide-tile']}>
-                                            <img src="/images/main-page/stock.png"/>
-                                            <div className={styles['stocks__slide-heading']}>
-                                                Воспользуйтесь исключительными преимуществами!
-                                            </div>
-                                        </Link>
-                                        <Link href='#!' className={styles['stocks__slide-tile']}>
-                                            <img src="/images/main-page/stock.png"/>
-                                            <div className={styles['stocks__slide-heading']}>
-                                                Воспользуйтесь исключительными преимуществами!
-                                            </div>
-                                        </Link>
-                                        <Link href='#!' className={styles['stocks__slide-tile']}>
-                                            <img src="/images/main-page/stock.png"/>
-                                            <div className={styles['stocks__slide-heading']}>
-                                                Воспользуйтесь исключительными преимуществами!
-                                            </div>
-                                        </Link>
-                                        <Link href='#!' className={styles['stocks__slide-tile']}>
-                                            <img src="/images/main-page/stock.png"/>
-                                            <div className={styles['stocks__slide-heading']}>
-                                                Воспользуйтесь исключительными преимуществами!
+                                                6. Воспользуйтесь исключительными преимуществами!
                                             </div>
                                         </Link>
                                     </div>
@@ -138,37 +106,77 @@ export function MainPageStocks() {
                                         <Link href='#!' className={styles['stocks__slide-tile']}>
                                             <img src="/images/main-page/stock.png"/>
                                             <div className={styles['stocks__slide-heading']}>
-                                                Воспользуйтесь исключительными преимуществами!
+                                                7. Воспользуйтесь исключительными преимуществами!
                                             </div>
                                         </Link>
                                         <Link href='#!' className={styles['stocks__slide-tile']}>
                                             <img src="/images/main-page/stock.png"/>
                                             <div className={styles['stocks__slide-heading']}>
-                                                Воспользуйтесь исключительными преимуществами!
+                                                8. Воспользуйтесь исключительными преимуществами!
                                             </div>
                                         </Link>
                                         <Link href='#!' className={styles['stocks__slide-tile']}>
                                             <img src="/images/main-page/stock.png"/>
                                             <div className={styles['stocks__slide-heading']}>
-                                                Воспользуйтесь исключительными преимуществами!
+                                                9. Воспользуйтесь исключительными преимуществами!
                                             </div>
                                         </Link>
                                         <Link href='#!' className={styles['stocks__slide-tile']}>
                                             <img src="/images/main-page/stock.png"/>
                                             <div className={styles['stocks__slide-heading']}>
-                                                Воспользуйтесь исключительными преимуществами!
+                                                10. Воспользуйтесь исключительными преимуществами!
                                             </div>
                                         </Link>
                                         <Link href='#!' className={styles['stocks__slide-tile']}>
                                             <img src="/images/main-page/stock.png"/>
                                             <div className={styles['stocks__slide-heading']}>
-                                                Воспользуйтесь исключительными преимуществами!
+                                                11. Воспользуйтесь исключительными преимуществами!
                                             </div>
                                         </Link>
                                         <Link href='#!' className={styles['stocks__slide-tile']}>
                                             <img src="/images/main-page/stock.png"/>
                                             <div className={styles['stocks__slide-heading']}>
-                                                Воспользуйтесь исключительными преимуществами!
+                                                12. Воспользуйтесь исключительными преимуществами!
+                                            </div>
+                                        </Link>
+                                    </div>
+                                </SwiperSlide>
+                                <SwiperSlide>
+                                    <div className={styles['stocks__swiper-slide']}>
+                                        <Link href='#!' className={styles['stocks__slide-tile']}>
+                                            <img src="/images/main-page/stock.png"/>
+                                            <div className={styles['stocks__slide-heading']}>
+                                                13. Воспользуйтесь исключительными преимуществами!
+                                            </div>
+                                        </Link>
+                                        <Link href='#!' className={styles['stocks__slide-tile']}>
+                                            <img src="/images/main-page/stock.png"/>
+                                            <div className={styles['stocks__slide-heading']}>
+                                                14. Воспользуйтесь исключительными преимуществами!
+                                            </div>
+                                        </Link>
+                                        <Link href='#!' className={styles['stocks__slide-tile']}>
+                                            <img src="/images/main-page/stock.png"/>
+                                            <div className={styles['stocks__slide-heading']}>
+                                                15. Воспользуйтесь исключительными преимуществами!
+                                            </div>
+                                        </Link>
+                                        <Link href='#!' className={styles['stocks__slide-tile']}>
+                                            <img src="/images/main-page/stock.png"/>
+                                            <div className={styles['stocks__slide-heading']}>
+                                                16. Воспользуйтесь исключительными преимуществами!
+                                            </div>
+                                        </Link>
+                                        <Link href='#!' className={styles['stocks__slide-tile']}>
+                                            <img src="/images/main-page/stock.png"/>
+                                            <div className={styles['stocks__slide-heading']}>
+                                                17. Воспользуйтесь исключительными преимуществами!
+                                            </div>
+                                        </Link>
+                                        <Link href='#!' className={styles['stocks__slide-tile']}>
+                                            <img src="/images/main-page/stock.png"/>
+                                            <div className={styles['stocks__slide-heading']}>
+                                                18. Воспользуйтесь исключительными преимуществами!
                                             </div>
                                         </Link>
                                     </div>
