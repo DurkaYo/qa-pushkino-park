@@ -1,0 +1,76 @@
+@import "../../../app/_styles/mixins";
+
+.retail-park {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 5rem 0 6rem 0;
+
+    @include screen-breakpoint($screen-middle-px) {
+        padding: 4rem 0;
+    }
+
+    &__more {
+        display: block;
+        width: fit-content;
+        font-weight: 400;
+        font-size: 1.8rem;
+        line-height: 1.33333;
+        color: var(--color-black);
+        margin-bottom: 1.6rem;
+
+        @include screen-breakpoint($screen-middle-px) {
+            display: none;
+        }
+    }
+
+    &__heading {
+        font-weight: 600;
+        font-size: 7.2rem;
+        line-height: 1.16667;
+        text-transform: uppercase;
+        color: var(--color-primary-blue);
+        margin-bottom: 2rem;
+
+        @include screen-breakpoint($screen-middle-px) {
+            font-size: 3.2rem;
+            letter-spacing: 0.01em;
+        }
+    }
+
+    &__slider {
+        margin-bottom: 6rem;
+    }
+
+    &__slider-buttons {
+        display: flex;
+        column-gap: 1.2rem;
+        justify-content: right;
+        margin-bottom: 1.6rem;
+
+        & button {
+            cursor: pointer;
+        }
+    }
+
+    &__slide {}
+
+    &__slide-image {
+        width: 18rem;
+        height: 18rem;
+        border-radius: 2.4rem;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+
+        @include screen-breakpoint($screen-middle-px) {
+            width: 15rem;
+            height: 15rem;
+        }
+
+        & img {
+            width: 100%;
+            height: 100%;
+            object-position: center;
+            object-fit: cover;
+        }
+    }
+}
