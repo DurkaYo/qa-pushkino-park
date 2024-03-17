@@ -5,6 +5,7 @@ import {MainPageStores} from "../../../widgets/main-page/stores";
 import {MainPageNews} from "../../../widgets/main-page/news";
 import {MainPageTheatre} from "../../../widgets/main-page/theatre";
 import {MainPageEntertainmentPark} from "../../../widgets/main-page/entertainment-park";
+import {MainPageCinema} from "../../../widgets/main-page/cinema";
 
 import styles from './styles.module.scss';
 
@@ -18,6 +19,7 @@ export default function HomePage() {
             <MainPageNews />
             <MainPageTheatre />
             <MainPageEntertainmentPark />
+            <MainPageCinema />
         </main>
     );
 }
