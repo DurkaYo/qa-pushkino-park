@@ -8,6 +8,7 @@ import styles from './styles.module.scss';
 
 export function RentersListCategories({categories}) {
     const [selectedCategories, setSelectedCategories] = useState([]);
+    const [isShowCategories, setIsShowCategories] = useState(false)
 
     function changeSelectedCategories(category, action) {
         if (action === 'add' && !selectedCategories.includes(category)) {
@@ -19,7 +20,19 @@ export function RentersListCategories({categories}) {
 
     return (
         <aside className={styles['categories']}>
-            <ul className={styles['categories__list']}>
+            <div
+                className={styles['categories__mobile-button']}
+                onClick={() => setIsShowCategories(!isShowCategories)}
+            >
+                <SvgIcon id='cart' color='#3383A4' />
+                <span>Выбор категорий</span>
+            </div>
+            <ul
+                className={`
+                    ${styles['categories__list']}
+                    ${isShowCategories ? styles['categories__list_active'] : ''}
+                `}
+            >
                 {
                     categories.map((category, index) =>
                         <li
