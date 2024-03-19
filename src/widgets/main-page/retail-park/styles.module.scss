@@ -49,6 +49,26 @@
 
         & button {
             cursor: pointer;
+
+            @include screen-breakpoint($screen-middle-px) {
+                width: 4rem;
+                height: 4rem;
+
+                & svg {
+                    width: 2rem;
+                    height: 2rem;
+                }
+            }
+
+            @include screen-breakpoint($screen-small-px) {
+                width: 3.6rem;
+                height: 3.6rem;
+
+                & svg {
+                    width: 1.6rem;
+                    height: 1.6rem;
+                }
+            }
         }
     }
 

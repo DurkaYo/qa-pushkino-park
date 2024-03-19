@@ -1,0 +1,45 @@
+@import "../../../app/_styles/mixins";
+
+.categories {
+    grid-column: span 3;
+
+    &__list {}
+
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1.6rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        & span {
+            font-weight: 400;
+            font-size: 1.8rem;
+            line-height: 1.33333;
+            color: var(--color-black);
+            cursor: pointer;
+        }
+
+        & svg {
+            display: none;
+            cursor: pointer;
+        }
+
+        &_active {
+            & span {
+                color: var(--color-primary-orange);
+            }
+
+            & svg {
+                display: block;
+            }
+        }
+    }
+
+    //& {}
+
+    //& {}
+}

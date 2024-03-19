@@ -2,8 +2,15 @@
 
 .footer {
     max-width: 1440px;
-    margin: 0 auto;
+    margin: 8rem auto 0 auto;
 
+    @include screen-breakpoint($screen-middle-px) {
+        margin-top: 6rem;
+    }
+
+    @include screen-breakpoint($screen-small-px) {
+        margin-top: 4rem;
+    }
 
     &__white-block {
         background-color: var(--color-white);
