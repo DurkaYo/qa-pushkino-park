@@ -1,16 +1,20 @@
 'use client';
 
 import {useState} from "react";
+import {useSelector, useDispatch} from "react-redux";
 
 import {Input} from "../../../shared/ui/inputs";
 import {Checkbox} from "../../../shared/ui/checkbox";
 import {SvgIcon} from "../../../shared/ui/svg-icon";
+import {changeViewMode} from "../../../shared/lib/store/slices/viewModeRentersList";
 
 import styles from './styles.module.scss';
 
 export function RentersListFilter() {
+    const currentViewMode = useSelector(state => state.viewModeRentersList.value);
+    const dispatch = useDispatch();
+
     const [isFloorListShow, setIsFloorListShow] = useState(false);
-    const [currentViewMode, setCurrentViewMode] = useState('tiles');
 
     return (
         <section className={styles['renters-filter']}>
@@ -80,7 +84,7 @@ export function RentersListFilter() {
                 </div>
                 <div
                     className={styles['renters-filter__view-mode']}
-                    onClick={() => setCurrentViewMode('tiles')}
+                    onClick={() => dispatch(changeViewMode('tiles'))}
                 >
                     <SvgIcon
                         id='grid'
@@ -89,7 +93,7 @@ export function RentersListFilter() {
                 </div>
                 <div
                     className={styles['renters-filter__view-mode']}
-                    onClick={() => setCurrentViewMode('list')}
+                    onClick={() => dispatch(changeViewMode('list'))}
                 >
                     <SvgIcon
                         id='apps-list'

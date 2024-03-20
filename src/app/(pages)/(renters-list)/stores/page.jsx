@@ -3,6 +3,12 @@ import {RentersList} from "../../../../widgets/renters-list";
 
 import styles from './styles.module.scss';
 
+export const metadata = {
+    title: "Магазины",
+    description: "Магазины",
+    keywords: "Магазины"
+};
+
 export default function StoresListPage() {
     const breadCrumbsLevels = [
         {

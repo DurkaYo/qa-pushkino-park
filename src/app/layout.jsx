@@ -1,9 +1,10 @@
 import {Raleway, Russo_One} from "next/font/google";
 
-import './_styles/global.scss';
-
+import StoreProvider from "../shared/lib/store/StoreProvider";
 import {Header} from "../widgets/header";
 import {Footer} from "../widgets/footer/";
+
+import './_styles/global.scss';
 
 const raleway = Raleway({
   subsets: ['cyrillic'],
@@ -23,9 +24,11 @@ export default function RootLayout({children}) {
   return (
     <html lang="ru" className={`${raleway.variable} ${russoOne.variable}`}>
       <body>
-        <Header />
-        {children}
-        <Footer />
+        <StoreProvider>
+          <Header />
+          {children}
+          <Footer />
+        </StoreProvider>
       </body>
     </html>
   );

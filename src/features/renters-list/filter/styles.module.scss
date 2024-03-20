@@ -89,6 +89,7 @@
         max-height: 0;
         overflow: hidden;
         transition: all .5s ease;
+        z-index: 1;
 
         @include screen-breakpoint($screen-middle-px) {
             top: 4.4rem;

@@ -27,7 +27,7 @@ export const RENTERS = {
             'Фастфуд'
         ],
     },
-    entertainment: {
+    entertainments: {
         name: 'Развлечение',
         categories: [],
     },

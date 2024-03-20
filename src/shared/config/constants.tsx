@@ -15,7 +15,7 @@ export const MENU_LINKS = [
     {
         'Магазины': {
             id: 'stores',
-            link: '#!',
+            link: '/stores',
             subItems: {
                 'Женская одежда': '#!',
                 'Нижнее белье': '#!',
@@ -30,7 +30,7 @@ export const MENU_LINKS = [
         },
         'Кафе и рестораны': {
             id: 'restaurants',
-            link: '#!',
+            link: '/cafes',
             subItems: {
                 'Кафе и рестораны 1': '#!',
                 'Кафе и рестораны 2': '#!',
@@ -42,7 +42,7 @@ export const MENU_LINKS = [
         },
         'Развлечения': {
             id: 'entertainments',
-            link: '#!',
+            link: '/entertainments',
             subItems: {
                 'Развлечения 1': '#!',
                 'Развлечения 2': '#!',
@@ -54,7 +54,7 @@ export const MENU_LINKS = [
         },
         'Услуги и сервис': {
             id: 'service',
-            link: '#!',
+            link: '/services',
             subItems: {
                 'Услуги и сервис 1': '#!',
                 'Услуги и сервис 2': '#!',
