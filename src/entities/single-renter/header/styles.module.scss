@@ -1,6 +1,11 @@
 @import "../../../app/_styles/mixins";
 
 .renter-header {
+    margin-bottom: 1.6rem;
+
+    @include screen-breakpoint($screen-middle-px) {
+        margin-bottom: 4rem;
+    }
 
     &__wrapper {
         display: grid;
