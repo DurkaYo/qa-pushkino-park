@@ -191,12 +191,12 @@ export function Header() {
                         {
                             Object.keys(MENU_LINKS[0]).map(mainLink => (
                                 <div key={MENU_LINKS[0][mainLink].id}>
-                                    <Link
+                                    <a
                                         href={MENU_LINKS[0][mainLink].link}
                                         className={`${styles['header__nav-main-link']} ${styles['header__nav-main-link_desk']}`}
                                     >
                                         {mainLink}
-                                    </Link>
+                                    </a>
                                     <div
                                         className={`
                                             ${styles['header__nav-heading']}
@@ -219,13 +219,13 @@ export function Header() {
                                     >
                                         {
                                             Object.keys(MENU_LINKS[0][mainLink].subItems).map((subItem, index) => (
-                                                <Link
+                                                <a
                                                     href={MENU_LINKS[0][mainLink].subItems[subItem]}
                                                     className={styles['header__nav-sub-link']}
                                                     key={index}
                                                 >
                                                     {subItem}
-                                                </Link>
+                                                </a>
                                             ))
                                         }
                                     </div>
@@ -238,13 +238,13 @@ export function Header() {
                             <div className={styles['header__nav-heading']}>Новости</div>
                             {
                                 Object.keys(MENU_LINKS[1]).map(mainLink => (
-                                    <Link
+                                    <a
                                         href={MENU_LINKS[1][mainLink].link}
                                         className={styles['header__nav-main-link']}
                                         key={MENU_LINKS[1][mainLink].id}
                                     >
                                         {mainLink}
-                                    </Link>
+                                    </a>
                                 ))
                             }
                         </div>
@@ -252,13 +252,13 @@ export function Header() {
                             <div className={styles['header__nav-heading']}>Информация</div>
                             {
                                 Object.keys(MENU_LINKS[2]).map(mainLink => (
-                                    <Link
+                                    <a
                                         href={MENU_LINKS[2][mainLink].link}
                                         className={styles['header__nav-main-link']}
                                         key={MENU_LINKS[2][mainLink].id}
                                     >
                                         {mainLink}
-                                    </Link>
+                                    </a>
                                 ))
                             }
                         </div>
