@@ -49,6 +49,7 @@ export function SingleRenterSimilarRenters() {
                         slidesPerView: 4,
                     },
                 }}
+                speed={1500}
             >
                 <SwiperSlide>
                     <RentersSingleTile />
