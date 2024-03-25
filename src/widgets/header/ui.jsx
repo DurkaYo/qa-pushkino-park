@@ -141,9 +141,9 @@ export function Header() {
                 <div className={`${styles['header']}__container`}>
                     <div className={styles['header__top-line']}>
                         <div className={styles['header__top-line-wrap']}>
-                            <div className={`${styles['header__logo']} js-header-logo`}>
+                            <a href='/' className={`${styles['header__logo']} js-header-logo`}>
                                 <img src="/images/main-logo/white.png" alt="Логотип Пушкино Парк"/>
-                            </div>
+                            </a>
                             <div className={styles['header__working-time']}>
                                 <SvgIcon id='clock' color={colorIconsSvg}/>
                                 <span>{WORKING_TIME_GALLERY.hours}</span>

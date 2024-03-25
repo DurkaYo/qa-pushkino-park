@@ -72,7 +72,7 @@ export const MENU_LINKS = [
         },
         'Акции': {
             id: 'stocks',
-            link: '#!',
+            link: '/stocks',
         },
     },
     {
