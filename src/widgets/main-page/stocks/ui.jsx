@@ -1,9 +1,9 @@
 'use client';
 
 import Link from "next/link";
-
 import {Swiper, SwiperSlide} from "swiper/react";
-import {Autoplay} from "swiper/modules";
+import {Autoplay, FreeMode} from "swiper/modules";
+import {useRef} from "react";
 
 import 'swiper/css';
 import 'swiper/css/bundle';
@@ -12,6 +12,22 @@ import 'swiper/css/autoplay';
 import styles from './styles.module.scss';
 
 export function MainPageStocks() {
+    const swiperRef = useRef(null);
+
+    const handleMouseEnter = () => {
+        console.log('enter');
+        if (swiperRef.current && swiperRef.current.swiper) {
+            swiperRef.current.swiper.autoplay.stop();
+        }
+    }
+
+    const handleMouseLeave = () => {
+        console.log('leave');
+        if (swiperRef.current && swiperRef.current.swiper) {
+            swiperRef.current.swiper.autoplay.start();
+        }
+    }
+
     return (
         <>
             <style>{`                
@@ -39,18 +55,23 @@ export function MainPageStocks() {
                     </div>
 
                     <div className={styles['stocks__slider']}>
-                        <div className={styles['stocks__slider-wrapper']}>
+                        <div
+                            className={styles['stocks__slider-wrapper']}
+                            onMouseEnter={handleMouseEnter}
+                            onMouseLeave={handleMouseLeave}
+                        >
                             <Swiper
-                                modules={[Autoplay]}
+                                ref={swiperRef}
+                                modules={[Autoplay, FreeMode]}
                                 direction="vertical"
                                 slidesPerView={.51}
                                 autoplay={{
                                     delay: 0,
-                                    pauseOnMouseEnter: true,
-                                    disableOnInteraction: false,
+                                    // pauseOnMouseEnter: true,
+                                    // disableOnInteraction: false,
                                 }}
                                 loop
-                                speed={20000}
+                                speed={5000}
                                 breakpoints={{
                                     720: {
                                         slidesPerView: .415,
@@ -59,6 +80,7 @@ export function MainPageStocks() {
                                         slidesPerView: .765,
                                     }
                                 }}
+                                freeMode={true}
                                 className={`${styles['stocks__swiper']} stocks__swiper`}
                             >
                                 <SwiperSlide>

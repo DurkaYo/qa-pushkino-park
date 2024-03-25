@@ -22,8 +22,7 @@ export function StocksCategories() {
     return (
         <aside className={styles['stocks-categories']}>
 
-            <div
-                className={styles['stocks-categories__select-category-wrapper']}>
+            <div className={styles['stocks-categories__select-category-wrapper']}>
                 <div
                     className={`
                         ${styles['stocks-categories__select-category-back-btn']}

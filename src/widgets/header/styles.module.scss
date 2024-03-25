@@ -1,5 +1,21 @@
 @import "../../app/_styles/mixins";
 
+.block-for-scroll {
+    --height-block-for-scroll-desk: 0;
+    --height-block-for-scroll-tab: 0;
+    --height-block-for-scroll-mob: 0;
+
+    height: var(--height-block-for-scroll-desk);
+
+    @include screen-breakpoint($screen-middle-px) {
+        height: var(--height-block-for-scroll-tab);
+    }
+
+    @include screen-breakpoint($screen-small-px) {
+        height: var(--height-block-for-scroll-mob);
+    }
+}
+
 .header {
     --header-position: fixed;
     --header-background-color: linear-gradient(180deg, rgba(0, 0, 0, .6) 0%, rgba(0, 0, 0, 0) 100%);
