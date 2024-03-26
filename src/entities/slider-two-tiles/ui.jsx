@@ -56,10 +56,10 @@ export function SliderTwoTiles({slides}) {
                                     <img src={slide.image} alt=""/>
                                 </div>
                                 {
-                                    slide.title && <div className={styles['slider__title']}>{slide.title}</div>
+                                    slide.title && <div className={`${styles['slider__title']} slider__title`}>{slide.title}</div>
                                 }
                                 {
-                                    slide.subtitle && <div className={styles['slider__subtitle']}>{slide.subtitle}</div>
+                                    slide.subtitle && <div className={`${styles['slider__subtitle']} slider__subtitle`}>{slide.subtitle}</div>
                                 }
                             </Link>
                         </SwiperSlide>

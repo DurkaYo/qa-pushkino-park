@@ -5,6 +5,7 @@ import {SingleStockBannerWithText} from "../../entities/single-stock/banner-with
 import {SingleStockLinksToLandings} from "../../entities/single-stock/links-to-landigs";
 import {SingleStockPartners} from "../../entities/single-stock/partners";
 import {Gallery} from "../../shared/ui/gallery";
+import {SingleStockOtherStocks} from "../../entities/single-stock/other-stocks";
 
 import styles from './styles.module.scss';
 
@@ -46,6 +47,7 @@ export function SingleStockWidget() {
                 <SingleStockLinksToLandings />
                 <SingleStockPartners />
                 <Gallery />
+                <SingleStockOtherStocks />
             </main>
         </>
     )
