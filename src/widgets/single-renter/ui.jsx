@@ -1,7 +1,7 @@
 import {BreadCrumbs} from "../bread-crumbs";
 import {SingleRenterHeader} from "../../entities/single-renter/header";
 import {SingleRenterContacts} from "../../entities/single-renter/contacts";
-import {SingleRenterGallery} from "../../entities/single-renter/gallery";
+import {Gallery} from "../../shared/ui/gallery";
 import {SingleRenterStocks} from "../../entities/single-renter/stocks";
 import {SingleRenterSimilarRenters} from "../../entities/single-renter/similar-renters";
 
@@ -29,7 +29,7 @@ export function SingleRenterWidget() {
             <main className={styles['single-renter']}>
                 <SingleRenterHeader />
                 <SingleRenterContacts />
-                <SingleRenterGallery />
+                <Gallery />
                 <SingleRenterStocks />
                 <SingleRenterSimilarRenters />
             </main>

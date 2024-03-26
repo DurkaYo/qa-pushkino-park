@@ -1,6 +1,15 @@
 @import "../../../app/_styles/mixins";
 
 .stock-links-to-landings {
+    margin-bottom: 8rem;
+
+    @include screen-breakpoint($screen-middle-px) {
+        margin-bottom: 6rem;
+    }
+
+    @include screen-breakpoint($screen-small-px) {
+        margin-bottom: 4rem;
+    }
 
     &__heading {
         font-weight: 600;
