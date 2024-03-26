@@ -5,7 +5,7 @@ import {useRef, useState} from "react";
 import {Thumbs} from 'swiper/modules';
 
 import {UISection} from "../../../shared/ui/section";
-import {SvgIcon} from "../../../shared/ui/svg-icon";
+import {SvgIcon} from "../svg-icon";
 
 import 'swiper/css';
 import 'swiper/css/bundle';
@@ -15,9 +15,9 @@ import styles from './styles.module.scss';
 import {
     ButtonCircleTransparentGray,
     ButtonCircleFull
-} from "../../../shared/ui/buttons";
+} from "../buttons";
 
-export function SingleRenterGallery() {
+export function Gallery() {
     const swiperRef = useRef(null);
 
     const [isShowGalleryOpen, setIsShowGalleryOpen] = useState(false);
