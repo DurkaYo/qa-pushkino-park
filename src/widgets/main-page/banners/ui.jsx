@@ -9,21 +9,33 @@ import {MainPageBannerOneSquarePicture} from "../../../entities/main-page-banner
 import {MainPageBannerTwoRoundPictures} from "../../../entities/main-page-banners/two-round-pictures";
 import {MainPageBannerTheatreThirdRim} from "../../../entities/main-page-banners/theatre-third-rim";
 import {MainPageBannerCustom} from "../../../entities/main-page-banners/custom-banner";
+import {ButtonCircleTransparentWhite} from "../../../shared/ui/buttons";
 
 import 'swiper/css';
 import 'swiper/css/bundle';
-import 'swiper/css/pagination';
 
+import 'swiper/css/pagination';
 import styles from './styles.module.scss';
 
 export function MainPageBanners() {
     const swiperRef = useRef(null);
 
+    function handlePrev() {
+        (swiperRef.current && swiperRef.current.swiper) && swiperRef.current.swiper.slidePrev();
+    }
+
+    function handleNext() {
+        (swiperRef.current && swiperRef.current.swiper) && swiperRef.current.swiper.slideNext();
+    }
+
     return (
         <>
             <style>{`
-                .swiper-pagination-bullets {
-                    
+                .main-banner-slider .swiper-pagination-bullets {
+                    display: flex;
+                    column-gap: 2.4rem;
+                    justify-content: center;
+                    align-items: center;
                 }
                 
                 .main-banner-slider .swiper-pagination {
@@ -36,7 +48,7 @@ export function MainPageBanners() {
                     }
                 }
                 
-                .swiper-pagination-bullet {
+                .main-banner-slider .swiper-pagination-bullet {
                     border: 1px solid var(--color-white);
                     border-radius: 100%;
                     width: 0.8rem;
@@ -45,7 +57,7 @@ export function MainPageBanners() {
                     opacity: 1;
                 }
                 
-                .swiper-pagination-bullet-active {
+                .main-banner-slider .swiper-pagination-bullet-active {
                     border-radius: 19rem;
                     width: 5.2rem;
                     height: 2rem;
@@ -59,7 +71,8 @@ export function MainPageBanners() {
                     loop
                     slidesPerView={1}
                     modules={[Pagination]}
-                    pagination={true}
+                    pagination={{ clickable: true }}
+                    speed={1000}
                 >
                     <SwiperSlide>
                         <MainPageBannerTwoOvalPictures/>
@@ -77,6 +90,15 @@ export function MainPageBanners() {
                         <MainPageBannerCustom/>
                     </SwiperSlide>
                 </Swiper>
+
+                <div className={styles['main-banner-slider__buttons']}>
+                    <div onClick={handlePrev}>
+                        <ButtonCircleTransparentWhite isRevers={true}/>
+                    </div>
+                    <div onClick={handleNext}>
+                        <ButtonCircleTransparentWhite isRevers={false}/>
+                    </div>
+                </div>
             </div>
         </>
     )
