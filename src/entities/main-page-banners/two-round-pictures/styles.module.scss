@@ -1,17 +1,14 @@
 @import "../../../app/_styles/mixins";
 
-@include screen-breakpoint($screen-middle-px) {}
+.banner-two-round-pictures {
 
-@include screen-breakpoint($screen-small-px) {}
-
-.banner-two-oval-pictures {
-    background: var(--bg-cyan);
+    background: var(--bg-green);
     padding: 15.6rem 0 5.8rem 0;
     height: 85rem;
     overflow: hidden;
 
     @include screen-breakpoint($screen-middle-px) {
-        padding: 15rem 0 0 0;
+        padding: 17rem 0 0 0;
         height: 54rem;
     }
 
@@ -23,8 +20,7 @@
     &__grid-wrapper {
         position: relative;
         display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        column-gap: 2rem;
+        grid-template-columns: repeat(2, 1fr);
 
         @include screen-breakpoint($screen-middle-px) {
             grid-template-columns: repeat(2, 1fr);
@@ -36,16 +32,16 @@
     }
 
     &__description {
-        grid-column: span 4;
-        padding: 10.4rem 0 0 0;
+        padding-top: 10.4rem;
 
         @include screen-breakpoint($screen-middle-px) {
             grid-column: auto;
+            padding-top: 4.3rem;
         }
 
         @include screen-breakpoint($screen-small-px) {
             position: absolute;
-            top: 31.6rem;
+            top: 29.2rem;
             left: 0;
             z-index: 1;
             padding: 0;
@@ -53,29 +49,17 @@
     }
 
     &__heading {
-        font-weight: 400;
+        font-weight: 600;
         font-size: 7.2rem;
         line-height: 1.16667;
         text-transform: uppercase;
         color: var(--color-white);
-        margin-bottom: 6.5rem;
+        margin-bottom: 6.4rem;
 
         @include screen-breakpoint($screen-middle-px) {
-            font-weight: 600;
             font-size: 3.2rem;
             letter-spacing: 0.01em;
-            margin-bottom: 2.5rem;
-        }
-
-        & span {
-            font-weight: 600;
-            font-size: 8rem;
-            letter-spacing: 0.5em;
-
-            @include screen-breakpoint($screen-middle-px) {
-                font-size: 3.2rem;
-                letter-spacing: 0.01em;
-            }
+            margin-bottom: 2.4rem;
         }
     }
 
@@ -95,42 +79,58 @@
     &__link {}
 
     &__images {
-        grid-column: span 8;
-
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        column-gap: 2rem;
+        display: flex;
+        justify-content: center;
+        position: relative;
 
         @include screen-breakpoint($screen-middle-px) {
             grid-column: auto;
 
-            grid-template-columns: 1fr;
         }
     }
 
     &__image {
-        border-radius: 100rem;
-        width: 38rem;
-        height: 63.6rem;
         overflow: hidden;
 
-        @include screen-breakpoint($screen-middle-px) {
-            width: 32rem;
-            height: 53.3rem;
-        }
+        &:nth-child(1) {
+            border-radius: 100%;
+            width: 60.3rem;
+            height: 60.3rem;
 
-        @include screen-breakpoint($screen-small-px) {
-            width: 35.8rem;
-            height: 65rem;
-            transform: translateX(-2rem);
-            border-radius: 100rem 100rem 0 0;
+            @include screen-breakpoint($screen-middle-px) {
+                width: 32rem;
+                height: 32rem;
+            }
+
+            @include screen-breakpoint($screen-small-px) {
+                width: 35.8rem;
+                height: 65rem;
+                transform: translateX(-2rem);
+                border-radius: 100rem 100rem 0 0;
+            }
         }
 
         &:nth-child(2) {
+            position: absolute;
+            top: 3rem;
+            left: -5rem;
+            border-radius: 100%;
+            width: 20rem;
+            height: 20rem;
+
             @include screen-breakpoint($screen-middle-px) {
-                display: none;
+                width: 10rem;
+                height: 10rem;
+                top: 1rem;
+                left: -3rem;
+            }
+
+            @include screen-breakpoint($screen-small-px) {
+                right: 3rem;
+                left: auto;
             }
         }
+
 
         & img {
             width: 100%;
