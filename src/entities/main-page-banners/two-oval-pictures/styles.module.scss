@@ -1,0 +1,42 @@
+@import "../../../app/_styles/mixins";
+
+@include screen-breakpoint($screen-middle-px) {}
+
+@include screen-breakpoint($screen-small-px) {}
+
+.banner-two-oval-pictures {
+    background: var(--bg-cyan);
+    padding: 15.6rem 0 5.8rem 0;
+    height: 85rem;
+
+    @include screen-breakpoint($screen-middle-px) {
+        height: 54rem;
+    }
+
+    @include screen-breakpoint($screen-small-px) {
+        height: 80rem;
+    }
+
+    &__grid-wrapper {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+
+        @include screen-breakpoint($screen-middle-px) {
+            //grid-template-columns: ;
+        }
+    }
+
+    &__description {
+        grid-column: span 4;
+    }
+
+    &__heading {}
+
+    &__text {}
+
+    &__link {}
+
+    &__images {
+        grid-column: span 8;
+    }
+}

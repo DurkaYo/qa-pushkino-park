@@ -1,0 +1,77 @@
+@import "../../app/_styles/mixins";
+
+.btn {
+    padding: 1.2rem 2.4rem;
+    color: var(--color-white);
+    border-radius: 20rem;
+    cursor: pointer;
+    background-color: var(--color-primary-orange);
+    text-align: center;
+    border: 1px solid var(--color-primary-orange);
+    width: fit-content;
+
+    @include screen-breakpoint($screen-small-px) {
+        width: 100%;
+    }
+
+    &_transparent {
+        background-color: transparent;
+        border: 1px solid var(--color-white);
+    }
+
+    &:disabled {
+        color: var(--color-transparent-white);
+        cursor: default;
+    }
+
+    &__circle {
+        width: 4.8rem;
+        height: 4.8rem;
+        flex-shrink: 0;
+        padding: 0;
+
+        &:disabled {
+            background-color: transparent;
+            border: 1px solid var(--color-transparent-white);
+
+            & svg path {
+                fill: var(--color-transparent-white);
+            }
+        }
+
+        & svg {
+            width: 2.4rem;
+            height: 2.4rem;
+        }
+
+        &_white {
+            background-color: transparent;
+            border: 1px solid var(--color-white);
+        }
+
+        &_gray {
+            background-color: transparent;
+            border: 1px solid var(--color-transparent-black);
+        }
+
+        &_black {
+            background-color: transparent;
+            border: 1px solid var(--color-black);
+
+            &:disabled {
+                background-color: transparent;
+                border: 1px solid var(--color-transparent-black);
+
+                & svg path {
+                    fill: var(--color-transparent-black);
+                }
+            }
+        }
+
+        &_revers {
+            & svg {
+                transform: rotate(180deg);
+            }
+        }
+    }
+}
