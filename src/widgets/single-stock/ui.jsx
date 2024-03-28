@@ -1,8 +1,6 @@
 import {BreadCrumbs} from "../bread-crumbs";
 import {SingleStockHeader} from "../../entities/single-stock/header";
 import {SinglePageHeader} from "../../shared/ui/single-page-header";
-import {SingleStockBanner} from "../../entities/single-stock/banner";
-import {SingleStockBannerWithText} from "../../entities/single-stock/banner-with-text";
 import {SingleBanner} from "../../shared/single-banner";
 import {SingleBannerWithText} from "../../shared/single-banner-with-text";
 import {SingleStockLinksToLandings} from "../../entities/single-stock/links-to-landigs";
@@ -28,14 +26,12 @@ export function SingleStockWidget() {
             <main className={styles['single-renter']}>
                 {/*<SingleStockHeader />*/}
                 <SinglePageHeader data={data} />
-                <SingleStockBanner />
-                <SingleStockBannerWithText
-                    bannerSide='left'
-                    button={{text: 'Правила акции'}}
-                />
+                <SingleBanner imgDesk='/images/temp_dev/single-renter/main-banner.jpg' />
+
                 <SingleBannerWithText
                     imgDesk='/images/temp_dev/single-renter/main-banner.jpg'
                     bannerSide='right'
+                    button={{text: 'Правила акции'}}
                 />
                 <SingleBannerWithText
                     imgDesk='/images/temp_dev/single-renter/main-banner.jpg'
