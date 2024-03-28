@@ -1,5 +1,6 @@
 import {BreadCrumbs} from "../bread-crumbs";
 import {SingleStockHeader} from "../../entities/single-stock/header";
+import {SinglePageHeader} from "../../shared/ui/single-page-header";
 import {SingleStockBanner} from "../../entities/single-stock/banner";
 import {SingleStockBannerWithText} from "../../entities/single-stock/banner-with-text";
 import {SingleStockLinksToLandings} from "../../entities/single-stock/links-to-landigs";
@@ -15,27 +16,16 @@ export const metadata = {
     keywords: "Акции и скидки"
 }
 
-const breadCrumbsLevels = [
-    {
-        levelName: 'Главная',
-        levelLink: '/',
-    },
-    {
-        levelName: 'Акции и скидки',
-        levelLink: '/stocks',
-    },
-    {
-        levelName: 'Акция и скидка',
-        levelLink: '',
-    },
-]
+import {breadCrumbsLevels} from '../../app/(pages)/stocks/[id]/config'; // моковые данные
+import {data} from "../../app/(pages)/stocks/[id]/config"; // моковые данные
 
 export function SingleStockWidget() {
     return (
         <>
             <BreadCrumbs levels={breadCrumbsLevels} />
             <main className={styles['single-renter']}>
-                <SingleStockHeader />
+                {/*<SingleStockHeader />*/}
+                <SinglePageHeader data={data} />
                 <SingleStockBanner />
                 <SingleStockBannerWithText
                     bannerSide='left'
