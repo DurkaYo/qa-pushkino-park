@@ -1,0 +1,26 @@
+@import "../../../app/_styles/mixins";
+
+
+.about{
+
+  &__desc{
+
+    font-weight: 400;
+    font-size: 1.8rem;
+    line-height: 1.33333;
+    margin: 0 0 4rem;
+    max-width: 48rem;
+    @include screen-breakpoint($screen-middle-px){
+      max-width: 52rem;
+    }
+    @include screen-breakpoint($screen-small-px){
+      max-width: none;
+    }
+  }
+  &__link{
+    margin: 0 0 6rem;
+    @include screen-breakpoint($screen-small-px){
+      margin: 0 0 4rem;
+    }
+  }
+}

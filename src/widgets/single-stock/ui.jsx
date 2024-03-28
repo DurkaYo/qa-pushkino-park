@@ -1,7 +1,7 @@
 import {BreadCrumbs} from "../bread-crumbs";
 import {SingleStockHeader} from "../../entities/single-stock/header";
-import {SingleStockBanner} from "../../entities/single-stock/banner";
-import {SingleStockBannerWithText} from "../../entities/single-stock/banner-with-text";
+import {SingleBanner} from "../../shared/single-banner";
+import {SingleBannerWithText} from "../../shared/single-banner-with-text";
 import {SingleStockLinksToLandings} from "../../entities/single-stock/links-to-landigs";
 import {SingleStockPartners} from "../../entities/single-stock/partners";
 import {Gallery} from "../../shared/ui/gallery";
@@ -36,14 +36,25 @@ export function SingleStockWidget() {
             <BreadCrumbs levels={breadCrumbsLevels} />
             <main className={styles['single-renter']}>
                 <SingleStockHeader />
-                <SingleStockBanner />
-                <SingleStockBannerWithText
+                <SingleBanner imgDesk='/images/temp_dev/single-renter/main-banner.jpg'  alt='main-banner' />
+                <SingleBannerWithText
+                    imgDesk='/images/temp_dev/single-renter/main-banner.jpg'
                     bannerSide='left'
                     button={{text: 'Правила акции'}}
                 />
-                <SingleStockBannerWithText bannerSide='right' />
-                <SingleStockBannerWithText bannerSide='left' />
-                <SingleStockBannerWithText bannerSide='right' />
+                <SingleBannerWithText
+                    imgDesk='/images/temp_dev/single-renter/main-banner.jpg'
+                    bannerSide='right'
+                />
+                <SingleBannerWithText
+                    imgDesk='/images/temp_dev/single-renter/main-banner.jpg'
+                    bannerSide='left'
+                />
+                <SingleBannerWithText
+                    imgDesk='/images/temp_dev/single-renter/main-banner.jpg'
+                    bannerSide='right'
+                />
+
                 <SingleStockLinksToLandings />
                 <SingleStockPartners />
                 <Gallery />

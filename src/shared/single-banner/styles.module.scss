@@ -1,6 +1,6 @@
-@import "../../../app/_styles/mixins";
+@import "../../app/_styles/mixins";
 
-.single-stock-banner {
+.single-banner {
     margin-bottom: 8rem;
 
     @include screen-breakpoint($screen-middle-px) {
