@@ -4,14 +4,14 @@
 import styles from './styles.module.scss';
 
 
-import {UISection} from "../../../shared/ui/section";
+
 import {SingleBanner} from "../../../shared/single-banner";
 
 
-export function AboutBanner() {
+export function AboutBanner({imgDesk,imgMob ,alt}) {
 
 
     return (
-        <SingleBanner imgDesk='/images/temp_dev/about/banner.jpg' alt='banner'/>
+        <SingleBanner imgDesk={imgDesk} imgMob={imgMob} alt={alt}/>
     )
 }
