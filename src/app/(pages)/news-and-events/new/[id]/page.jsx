@@ -1,4 +1,5 @@
 import {BreadCrumbs} from "../../../../../widgets/bread-crumbs";
+import {SinglePageHeader} from "../../../../../shared/ui/single-page-header";
 
 import styles from './styles.module.scss';
 
@@ -8,27 +9,14 @@ export const metadata = {
     keywords: "Новость"
 };
 
-export const breadCrumbsLevels = [
-    {
-        levelName: 'Главная',
-        levelLink: '/',
-    },
-    {
-        levelName: 'Новости и мероприятия',
-        levelLink: '/news-and-events',
-    },
-    {
-        levelName: 'Новость',
-        levelLink: '',
-    },
-]
+import {breadCrumbsLevels, data} from "./config"; // моковые данные
 
 export default function SingleNewPage() {
     return (
         <>
             <BreadCrumbs levels={breadCrumbsLevels} />
             <main className={styles['single-new']}>
-
+                <SinglePageHeader data={data} />
             </main>
         </>
     )

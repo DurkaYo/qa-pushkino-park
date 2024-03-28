@@ -1,4 +1,8 @@
 import {BreadCrumbs} from "../../../../../widgets/bread-crumbs";
+import {SinglePageHeader} from "../../../../../shared/ui/single-page-header";
+import {SingleEventSchedule} from "../../../../../widgets/single-event/schedule";
+import {Gallery} from "../../../../../shared/ui/gallery";
+import {SingleEventOtherNewsAndEvents} from "../../../../../widgets/single-event/other-news-events";
 
 import styles from './styles.module.scss';
 
@@ -8,26 +12,18 @@ export const metadata = {
     keywords: "Мероприятие"
 };
 
-export const breadCrumbsLevels = [
-    {
-        levelName: 'Главная',
-        levelLink: '/',
-    },
-    {
-        levelName: 'Новости и мероприятия',
-        levelLink: '/news-and-events',
-    },
-    {
-        levelName: 'Мероприятие',
-        levelLink: '',
-    },
-]
+import {breadCrumbsLevels, data} from "./config"; // моковые данные
 
 export default function SingleEventPage() {
     return (
         <>
-            <BreadCrumbs levels={breadCrumbsLevels} />
-            SingleEventPage
+            <BreadCrumbs levels={breadCrumbsLevels}/>
+            <main className={styles['single-event']}>
+                <SinglePageHeader data={data} />
+                <SingleEventSchedule />
+                <Gallery />
+                <SingleEventOtherNewsAndEvents />
+            </main>
         </>
     )
 }

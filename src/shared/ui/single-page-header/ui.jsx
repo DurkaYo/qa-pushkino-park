@@ -10,7 +10,7 @@ export function SinglePageHeader({data}) {
                 <div className={styles['single-page-header__description']}>
                     <h1 className={styles['single-page-header__heading']}>{data.heading}</h1>
                     {
-                        data.date && <div className={styles['single-page-header__date']}>01 фев ‒ 01 мар</div>
+                        data.date && <div className={styles['single-page-header__date']}>{data.date}</div>
                     }
                     {
                         data.location &&

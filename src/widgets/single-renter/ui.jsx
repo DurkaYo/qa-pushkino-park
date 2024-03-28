@@ -1,4 +1,5 @@
 import {BreadCrumbs} from "../bread-crumbs";
+import {SingleRenterHeader} from "../../entities/single-renter/header";
 import {SinglePageHeader} from "../../shared/ui/single-page-header";
 import {SingleRenterContacts} from "../../entities/single-renter/contacts";
 import {Gallery} from "../../shared/ui/gallery";
@@ -15,6 +16,7 @@ export function SingleRenterWidget() {
         <>
             <BreadCrumbs levels={breadCrumbsLevels} />
             <main className={styles['single-renter']}>
+                {/*<SingleRenterHeader />*/}
                 <SinglePageHeader data={data} />
                 <SingleRenterContacts />
                 <Gallery />
