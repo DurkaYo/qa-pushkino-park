@@ -1,5 +1,6 @@
 import {BreadCrumbs} from "../bread-crumbs";
 import {SingleRenterHeader} from "../../entities/single-renter/header";
+import {SinglePageHeader} from "../../shared/ui/single-page-header";
 import {SingleRenterContacts} from "../../entities/single-renter/contacts";
 import {Gallery} from "../../shared/ui/gallery";
 import {SingleRenterStocks} from "../../entities/single-renter/stocks";
@@ -7,27 +8,16 @@ import {SingleRenterSimilarRenters} from "../../entities/single-renter/similar-r
 
 import styles from './styles.module.scss';
 
-export function SingleRenterWidget() {
-    const breadCrumbsLevels = [
-        {
-            levelName: 'Главная',
-            levelLink: '/',
-        },
-        {
-            levelName: 'Тип Арендатора',
-            levelLink: '/#!',
-        },
-        {
-            levelName: 'Название Арендатора',
-            levelLink: '',
-        },
-    ]
+import {breadCrumbsLevels} from "./config"; // моковые данные
+import {data} from "./config"; // моковые данные
 
+export function SingleRenterWidget() {
     return (
         <>
             <BreadCrumbs levels={breadCrumbsLevels} />
             <main className={styles['single-renter']}>
-                <SingleRenterHeader />
+                {/*<SingleRenterHeader />*/}
+                <SinglePageHeader data={data} />
                 <SingleRenterContacts />
                 <Gallery />
                 <SingleRenterStocks />
